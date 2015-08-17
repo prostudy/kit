@@ -1,0 +1,717 @@
+2015/08/16 05:58:32 [error] [php] Undefined variable: resources (/Applications/MAMP/htdocs/kitsgdp/protected/controllers/ArticleController.php:36)
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): ArticleController->runAction()
+#3 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#4 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#5 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#6 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#7 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/detailArticle&idArticle=20
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/ArticleController.php (36)
+in /Applications/MAMP/htdocs/kitsgdp/index.php (13)
+2015/08/16 06:04:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'CDbDataReader cannot rewind. It is a forward-only reader.' in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/ArticleController.php:40
+Stack trace:
+#0 [internal function]: ArticleController->actionDetailArticle('20')
+#1 /Applications/MAMP/htdocs/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ArticleController), Array)
+#2 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ArticleController), Object(ReflectionMethod), Array)
+#3 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): CController->run('detailArticle')
+#7 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Article/detailA...')
+#8 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/kitsgdp/index.php?r=Article/detailArticle&idArticle=20
+---
+2015/08/16 06:39:08 [error] [php] Undefined index: idarticles (/Applications/MAMP/htdocs/kitsgdp/protected/views/site/searchresults.php:55)
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/web/CController.php(869): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/yii/framework/web/CController.php(782): SiteController->renderPartial()
+#2 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(41): SiteController->render()
+#3 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(28): SiteController->performSearch()
+#4 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(16): SiteController->getDataHomeOrSearchArticles()
+#5 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#6 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): SiteController->runAction()
+#8 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#9 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#10 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#12 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?s=LISTA
+in /Applications/MAMP/htdocs/kitsgdp/protected/views/site/searchresults.php (55)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (41)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (28)
+2015/08/16 06:43:08 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''%A%''
+									and articles.`idarticles` = `articles_has_resources`.`articles_i' at line 4. The SQL statement executed was: SELECT  * FROM articles_has_resources, resources,articles
+									WHERE articles_has_resources.resources_idresources = resources.`idresources`
+									/*AND  articles_has_resources.articles_idarticles	 = 20*/
+									AND  resources.name LIKE ?'
+									and articles.`idarticles` = `articles_has_resources`.`articles_idarticles`. Bound with 0='%A%'.
+in /Applications/MAMP/htdocs/kitsgdp/protected/dao/ArticleDao.php (119)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (39)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (28)
+2015/08/16 06:43:08 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''%A%''
+									and articles.`idarticles` = `articles_has_resources`.`articles_i' at line 4. The SQL statement executed was: SELECT  * FROM articles_has_resources, resources,articles
+									WHERE articles_has_resources.resources_idresources = resources.`idresources`
+									/*AND  articles_has_resources.articles_idarticles	 = 20*/
+									AND  resources.name LIKE ?'
+									and articles.`idarticles` = `articles_has_resources`.`articles_idarticles`. Bound with 0='%A%'' in /Applications/MAMP/htdocs/yii/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/db/CDbCommand.php(376): CDbCommand->queryInternal('', 0, Array)
+#1 /Applications/MAMP/htdocs/kitsgdp/protected/dao/ArticleDao.php(119): CDbCommand->query()
+#2 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(39): ArticleDao->searchDocuments('A', false)
+#3 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(28): SiteController->performSearch('A')
+#4 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(16): SiteController->getDataHomeOrSearchArticles()
+#5 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#6 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#8 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): CController->run('')
+#10 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#11 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#12 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/kitsgdp/index.php?s=A
+HTTP_REFERER=http://localhost:8888/kitsgdp/index.php?s=LISTA
+---
+2015/08/16 06:43:25 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''%aviso%''
+									and articles.`idarticles` = `articles_has_resources`.`articl' at line 3. The SQL statement executed was: SELECT  * FROM articles_has_resources, resources,articles
+									WHERE articles_has_resources.resources_idresources = resources.`idresources`
+									AND  resources.name LIKE ?'
+									and articles.`idarticles` = `articles_has_resources`.`articles_idarticles`. Bound with 0='%aviso%'.
+in /Applications/MAMP/htdocs/kitsgdp/protected/dao/ArticleDao.php (119)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (39)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (28)
+2015/08/16 06:43:25 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''%aviso%''
+									and articles.`idarticles` = `articles_has_resources`.`articl' at line 3. The SQL statement executed was: SELECT  * FROM articles_has_resources, resources,articles
+									WHERE articles_has_resources.resources_idresources = resources.`idresources`
+									AND  resources.name LIKE ?'
+									and articles.`idarticles` = `articles_has_resources`.`articles_idarticles`. Bound with 0='%aviso%'' in /Applications/MAMP/htdocs/yii/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/db/CDbCommand.php(376): CDbCommand->queryInternal('', 0, Array)
+#1 /Applications/MAMP/htdocs/kitsgdp/protected/dao/ArticleDao.php(119): CDbCommand->query()
+#2 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(39): ArticleDao->searchDocuments('aviso', false)
+#3 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(28): SiteController->performSearch('aviso')
+#4 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(16): SiteController->getDataHomeOrSearchArticles()
+#5 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#6 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#8 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): CController->run('')
+#10 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#11 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#12 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/kitsgdp/index.php?s=aviso
+HTTP_REFERER=http://localhost:8888/kitsgdp/index.php
+---
+2015/08/16 06:43:48 [error] [php] Undefined index: NAME (/Applications/MAMP/htdocs/kitsgdp/protected/views/site/searchresults.php:58)
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/web/CController.php(869): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/yii/framework/web/CController.php(782): SiteController->renderPartial()
+#2 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(41): SiteController->render()
+#3 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(28): SiteController->performSearch()
+#4 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(16): SiteController->getDataHomeOrSearchArticles()
+#5 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#6 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): SiteController->runAction()
+#8 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#9 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#10 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#12 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?s=aviso
+in /Applications/MAMP/htdocs/kitsgdp/protected/views/site/searchresults.php (58)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (41)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (28)
+2015/08/16 06:46:22 [error] [php] Undefined index: nameFile (/Applications/MAMP/htdocs/kitsgdp/protected/views/site/searchresults.php:58)
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/web/CController.php(869): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/yii/framework/web/CController.php(782): SiteController->renderPartial()
+#2 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(41): SiteController->render()
+#3 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(28): SiteController->performSearch()
+#4 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(16): SiteController->getDataHomeOrSearchArticles()
+#5 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#6 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): SiteController->runAction()
+#8 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#9 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#10 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#12 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?s=aviso_
+in /Applications/MAMP/htdocs/kitsgdp/protected/views/site/searchresults.php (58)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (41)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (28)
+2015/08/16 06:48:56 [error] [php] Undefined variable: resource (/Applications/MAMP/htdocs/kitsgdp/protected/views/site/searchresults.php:55)
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/web/CController.php(869): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/yii/framework/web/CController.php(782): SiteController->renderPartial()
+#2 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(41): SiteController->render()
+#3 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(28): SiteController->performSearch()
+#4 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(16): SiteController->getDataHomeOrSearchArticles()
+#5 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#6 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): SiteController->runAction()
+#8 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#9 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#10 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#12 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?s=lineamientos
+in /Applications/MAMP/htdocs/kitsgdp/protected/views/site/searchresults.php (55)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (41)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (28)
+2015/08/16 06:49:07 [error] [php] Undefined index: url (/Applications/MAMP/htdocs/kitsgdp/protected/views/site/searchresults.php:55)
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/web/CController.php(869): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/yii/framework/web/CController.php(782): SiteController->renderPartial()
+#2 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(41): SiteController->render()
+#3 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(28): SiteController->performSearch()
+#4 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(16): SiteController->getDataHomeOrSearchArticles()
+#5 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#6 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): SiteController->runAction()
+#8 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#9 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#10 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#12 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?s=lineamientos
+in /Applications/MAMP/htdocs/kitsgdp/protected/views/site/searchresults.php (55)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (41)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (28)
+2015/08/16 06:53:21 [error] [php] Undefined index: type (/Applications/MAMP/htdocs/kitsgdp/protected/views/site/searchresults.php:39)
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/web/CController.php(869): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/yii/framework/web/CController.php(782): SiteController->renderPartial()
+#2 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(41): SiteController->render()
+#3 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(28): SiteController->performSearch()
+#4 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(16): SiteController->getDataHomeOrSearchArticles()
+#5 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#6 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): SiteController->runAction()
+#8 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#9 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#10 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#12 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?s=aviso_
+in /Applications/MAMP/htdocs/kitsgdp/protected/views/site/searchresults.php (39)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (41)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (28)
+2015/08/16 06:53:52 [error] [php] Undefined index: type (/Applications/MAMP/htdocs/kitsgdp/protected/views/site/searchresults.php:55)
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/web/CController.php(869): SiteController->renderFile()
+#1 /Applications/MAMP/htdocs/yii/framework/web/CController.php(782): SiteController->renderPartial()
+#2 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(41): SiteController->render()
+#3 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(28): SiteController->performSearch()
+#4 /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php(16): SiteController->getDataHomeOrSearchArticles()
+#5 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#6 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): SiteController->runAction()
+#8 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#9 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#10 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#12 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?s=aviso_
+in /Applications/MAMP/htdocs/kitsgdp/protected/views/site/searchresults.php (55)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (41)
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/SiteController.php (28)
+2015/08/17 00:00:23 [error] [php] Creating default object from empty value (/Applications/MAMP/htdocs/kitsgdp/protected/controllers/AdministratorController.php:192)
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): AdministratorController->runAction()
+#3 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): AdministratorController->runActionWithFilters()
+#4 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): AdministratorController->run()
+#5 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#6 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#7 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Administrator/zip&code=PEV_FFFCEAA9
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/AdministratorController.php (192)
+in /Applications/MAMP/htdocs/kitsgdp/index.php (13)
+2015/08/17 00:00:26 [error] [php] Creating default object from empty value (/Applications/MAMP/htdocs/kitsgdp/protected/controllers/AdministratorController.php:192)
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): AdministratorController->runAction()
+#3 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): AdministratorController->runActionWithFilters()
+#4 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): AdministratorController->run()
+#5 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#6 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#7 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Administrator/zip&code=PEV_4A4F35B0
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/AdministratorController.php (192)
+in /Applications/MAMP/htdocs/kitsgdp/index.php (13)
+2015/08/17 00:00:36 [error] [php] Creating default object from empty value (/Applications/MAMP/htdocs/kitsgdp/protected/controllers/AdministratorController.php:192)
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): AdministratorController->runAction()
+#3 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): AdministratorController->runActionWithFilters()
+#4 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): AdministratorController->run()
+#5 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#6 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#7 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Administrator/zip&code=39A0E492
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/AdministratorController.php (192)
+in /Applications/MAMP/htdocs/kitsgdp/index.php (13)
+2015/08/17 00:03:26 [error] [php] Creating default object from empty value (/Applications/MAMP/htdocs/kitsgdp/protected/controllers/AdministratorController.php:192)
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): AdministratorController->runAction()
+#3 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): AdministratorController->runActionWithFilters()
+#4 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): AdministratorController->run()
+#5 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#6 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#7 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Administrator/zip&code=F3E938A4
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/AdministratorController.php (192)
+in /Applications/MAMP/htdocs/kitsgdp/index.php (13)
+2015/08/17 00:10:44 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /Applications/MAMP/htdocs/yii/framework/web/CController.php:336
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): CController->run('survey')
+#4 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Article/survey')
+#5 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/kitsgdp/index.php?r=Article/survey
+---
+2015/08/17 00:11:07 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /Applications/MAMP/htdocs/yii/framework/web/CController.php:336
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): CController->run('survey')
+#4 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Article/survey')
+#5 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#6 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/kitsgdp/index.php?r=Article/survey
+---
+2015/08/17 01:01:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Error: No se encontro artículo solicitado' in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/ArticleController.php:40
+Stack trace:
+#0 [internal function]: ArticleController->actionDetailArticle('9')
+#1 /Applications/MAMP/htdocs/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ArticleController), Array)
+#2 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ArticleController), Object(ReflectionMethod), Array)
+#3 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): CController->run('detailArticle')
+#7 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Article/detailA...')
+#8 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/kitsgdp/index.php?r=Article/detailArticle&idArticle=9
+HTTP_REFERER=http://192.168.100.5:8888/kitsgdp/index.php?r=site/index
+---
+2015/08/17 01:02:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Error: No se encontro artículo solicitado' in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/ArticleController.php:40
+Stack trace:
+#0 [internal function]: ArticleController->actionDetailArticle('15')
+#1 /Applications/MAMP/htdocs/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ArticleController), Array)
+#2 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ArticleController), Object(ReflectionMethod), Array)
+#3 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): CController->run('detailArticle')
+#7 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Article/detailA...')
+#8 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/kitsgdp/index.php?r=Article/detailArticle&idArticle=15
+HTTP_REFERER=http://192.168.100.5:8888/kitsgdp/index.php?r=Article/detailArticle&idArticle=1
+---
+2015/08/17 01:19:44 [error] [php] Creating default object from empty value (/Applications/MAMP/htdocs/kitsgdp/protected/controllers/AdministratorController.php:192)
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): AdministratorController->runAction()
+#3 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): AdministratorController->runActionWithFilters()
+#4 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): AdministratorController->run()
+#5 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#6 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#7 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Administrator/zip&code=58528B35
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/AdministratorController.php (192)
+in /Applications/MAMP/htdocs/kitsgdp/index.php (13)
+2015/08/17 01:19:52 [error] [php] Creating default object from empty value (/Applications/MAMP/htdocs/kitsgdp/protected/controllers/AdministratorController.php:192)
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): AdministratorController->runAction()
+#3 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): AdministratorController->runActionWithFilters()
+#4 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): AdministratorController->run()
+#5 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#6 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#7 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Administrator/zip&code=canleo_5A8D8DD7
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/AdministratorController.php (192)
+in /Applications/MAMP/htdocs/kitsgdp/index.php (13)
+2015/08/17 01:20:08 [error] [php] Creating default object from empty value (/Applications/MAMP/htdocs/kitsgdp/protected/controllers/AdministratorController.php:192)
+Stack trace:
+#0 /Applications/MAMP/htdocs/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /Applications/MAMP/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Applications/MAMP/htdocs/yii/framework/web/CController.php(286): AdministratorController->runAction()
+#3 /Applications/MAMP/htdocs/yii/framework/web/CController.php(265): AdministratorController->runActionWithFilters()
+#4 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(282): AdministratorController->run()
+#5 /Applications/MAMP/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#6 /Applications/MAMP/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#7 /Applications/MAMP/htdocs/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Administrator/zip&code=6346A3AE
+in /Applications/MAMP/htdocs/kitsgdp/protected/controllers/AdministratorController.php (192)
+in /Applications/MAMP/htdocs/kitsgdp/index.php (13)
+2015/08/17 00:22:46 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Tecnicas_para_identificar_la_causa raiz_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Tecnicas_para_identificar_la_causa%20raiz_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 00:22:46 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Tecnicas_para_identificar_la_causa raiz_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Tecnicas_para_identificar_la_causa%20raiz_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 00:22:52 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Tecnicas_para_identificar_la_causa raiz_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Tecnicas_para_identificar_la_causa%20raiz_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 00:22:52 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Tecnicas_para_identificar_la_causa raiz_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Tecnicas_para_identificar_la_causa%20raiz_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 00:22:59 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Procedimiento_de_acciones_correctivas_preventivas_de mejora_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Procedimiento_de_acciones_correctivas_preventivas_de%20mejora_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 00:22:59 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Procedimiento_de_acciones_correctivas_preventivas_de mejora_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Procedimiento_de_acciones_correctivas_preventivas_de%20mejora_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 00:23:04 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Procedimiento_de_acciones_correctivas_preventivas_de mejora_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Procedimiento_de_acciones_correctivas_preventivas_de%20mejora_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 00:26:06 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Procedimiento_de_acciones_correctivas_preventivas_de mejora_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Procedimiento_de_acciones_correctivas_preventivas_de%20mejora_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 00:26:06 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Procedimiento_de_acciones_correctivas_preventivas_de mejora_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Procedimiento_de_acciones_correctivas_preventivas_de%20mejora_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 00:26:41 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Tecnicas_para_identificar_la_causa raiz_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Tecnicas_para_identificar_la_causa%20raiz_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 00:26:42 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Tecnicas_para_identificar_la_causa raiz_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Tecnicas_para_identificar_la_causa%20raiz_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 14:03:54 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Plan_de accion_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Plan_de%20accion_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 14:03:54 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Plan_de accion_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Plan_de%20accion_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 14:04:00 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Plan_de accion_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Plan_de%20accion_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 14:04:00 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Plan_de accion_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Plan_de%20accion_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 14:08:41 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Plan_de accion_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Plan_de%20accion_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 14:08:41 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Plan_de accion_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Plan_de%20accion_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 14:10:22 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Politica_de _sanciones_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Politica_de%20_sanciones_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 14:10:22 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Politica_de _sanciones_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Politica_de%20_sanciones_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 14:11:39 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Politica_de_sanciones_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Politica_de_sanciones_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 14:11:39 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Politica_de_sanciones_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Politica_de_sanciones_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 14:11:42 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Politica_de_sanciones_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Politica_de_sanciones_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)
+2015/08/17 14:11:42 [error] [php] readfile(http://pmstudykit.com/resources/kitgsdp_resources/Actuar/Politica_de_sanciones_toolkitNYCE.docx): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ (/home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php:99)
+Stack trace:
+#0 /home/pmstu282/public_html/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#1 /home/pmstu282/public_html/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /home/pmstu282/public_html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/pmstu282/public_html/yii/framework/web/CController.php(286): ArticleController->runAction()
+#4 /home/pmstu282/public_html/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
+#5 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(282): ArticleController->run()
+#6 /home/pmstu282/public_html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/pmstu282/public_html/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /home/pmstu282/public_html/kitsgdp/index.php(13): CWebApplication->run()
+REQUEST_URI=/kitsgdp/index.php?r=Article/downloadResource&name=Actuar/Politica_de_sanciones_toolkitNYCE.docx
+in /home/pmstu282/public_html/kitsgdp/protected/controllers/ArticleController.php (99)
+in /home/pmstu282/public_html/kitsgdp/index.php (13)

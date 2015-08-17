@@ -1,0 +1,20 @@
+/**
+ *
+ * Apply your custom CSS here
+ *
+*/
+
+body {	
+}
+
+a {
+}
+
+.content_article{
+	font-size: 1.2em !important;
+}
+
+.content_article p{
+	color: #454B4E !important;
+	text-align: justify;
+}
