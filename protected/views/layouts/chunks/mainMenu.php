@@ -89,6 +89,8 @@
 						</ul>
 					</li>
 					
+					<?php if( !(Yii::app()->session['restricted']) ){?>
+					
 					<li>
 						<a href="layout-variants.html">
 							<i class="fa-pencil"></i>
@@ -190,7 +192,14 @@
 							</li>
 						</ul>
 					</li>
-					
+					<?php }else{?>
+					<li>
+						<a>
+							<i class="fa-lock"></i>
+							<span class="title"><?= Constants::CONTENT_RESTRICTED?></span>
+						</a>
+					</li>	
+					<?php }?>
 					<li>
 						<a href="<?php echo Yii::app()->createAbsoluteUrl("Article/survey"); ?>">
 							<i class="fa-question"></i>
@@ -200,8 +209,8 @@
 					
 					<li>
 						<a href="<?php echo Yii::app()->createAbsoluteUrl("Site/close"); ?>">
-							<i class="fa-lock"></i>
-							Cerrar mi sesión
+							<i class="fa-sign-out"></i>
+							<span class="title">Cerrar Sesión</span>
 						</a>
 					</li>
 					

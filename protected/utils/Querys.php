@@ -61,6 +61,12 @@ class Querys{
 									and articles.`idarticles` = `articles_has_resources`.`articles_idarticles`
 									group by resources.name";
 	
+	const SEARCH_DOCUMENTS_BY_TEXT_RESTRICTED  = "SELECT  articles.*, resources.name as nameFile, resources.url, resources.type FROM articles_has_resources, resources,articles
+									WHERE articles_has_resources.resources_idresources = resources.`idresources`
+									AND  resources.name LIKE ?
+									and articles.`idarticles` = `articles_has_resources`.`articles_idarticles`  AND resources.restricted = 0
+									group by resources.name ";
+	
 	/*const GET_RESOURCES_ARTICLE =  "SELECT articles.*,  resources.`name` as docname, resources.url
 							FROM articles
 							LEFT JOIN articles_has_resources ON articles_has_resources.articles_idarticles = articles.`idarticles`

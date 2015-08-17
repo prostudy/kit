@@ -104,7 +104,7 @@
 							</li>
 							<li class="last">
 								<a href="<?php echo Yii::app()->createAbsoluteUrl("Site/close"); ?>">
-									<i class="fa-lock"></i>
+									<i class="fa-sign-out"></i>
 									Cerrar mi sesión
 								</a>
 							</li>

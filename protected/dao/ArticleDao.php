@@ -112,7 +112,7 @@ class ArticleDao{
  	 */
  	public function searchDocuments($searchText,$restricted){//Listo
  		$connection=Yii::app()->db;
- 		$sql = $restricted ? Querys::SEARCH_DOCUMENTS_BY_TEXT : Querys::SEARCH_DOCUMENTS_BY_TEXT;
+ 		$sql = $restricted ? Querys::SEARCH_DOCUMENTS_BY_TEXT_RESTRICTED : Querys::SEARCH_DOCUMENTS_BY_TEXT;
  		$command = $connection->createCommand($sql);
  		$index = 0;
  		$command->bindValue(++$index,"%".$searchText."%",PDO::PARAM_STR);

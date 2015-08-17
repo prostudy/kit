@@ -1003,7 +1003,7 @@ html,body {
 }
 
 .sidebar-menu .main-menu ul li a {
-    padding-left: 35px
+    padding-left: 35px; background:#afeeee; 
 }
 
 .sidebar-menu .main-menu ul li ul li a {

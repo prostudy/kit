@@ -17,7 +17,7 @@
 					<tbody>
 							<?php foreach($articles as $row) {?>
 						<tr>
-							<td><a href="<?php echo Yii::app()->createAbsoluteUrl("Article/detailArticle&idArticle=".$row['idarticles']); ?>"><?=$row['name']?></a></td>
+							<td><a href="<?php echo Yii::app()->createAbsoluteUrl("Article/detailArticle&idArticle=".$row['idarticles']); ?>"><span class="text-success-nyce"><?=$row['name']?></span></a></td>
 							<td><a href="<?php echo Yii::app()->createAbsoluteUrl("Article/detailArticle&idArticle=".$row['idarticles']); ?>"><?= $row['summary'] ?></a></td>
 							<td><div class="label label-<?=$row['color'] ?>"><?=$row['module'] ?></div></td>							
 						</tr>

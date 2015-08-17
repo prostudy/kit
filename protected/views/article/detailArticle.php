@@ -103,7 +103,15 @@
 				</div>
 			</div>
 			<div class="tab-pane" id="messages-3">
-				
+				<div class="list-group list-group-minimal"><!-- Add class "list-group-minimal" for less padding between list items -->
+					<?php foreach($resourcesTap3 as $resource) {?>
+					<a href="<?php echo Yii::app()->createAbsoluteUrl("Article/downloadResource&name=".$resource['url']); ?>" class="list-group-item">
+						<span class="badge badge-turquoise">Descargar <!-- <i class="fa fa-file-word-o"></i> --><?= $resource['type']?></span>
+						<span class="text-success-nyce"><?= $resource['name']?></span>
+						<p><?= $resource['description']?></p>
+					</a>
+					<?php }?>
+				</div>
 			</div>
 			
 		</div>

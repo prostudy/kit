@@ -31,10 +31,15 @@ class ArticleController extends Controller{
 				$article = ArticleDao::getInstance()->getArticleById($idArticle,Yii::app()->session['restricted']);
 				$resourcesTap1 =  ArticleDao::getInstance()->getResourcesArticle($idArticle,Constants::TAP1);
 				$resourcesTap2 =  ArticleDao::getInstance()->getResourcesArticle($idArticle,Constants::TAP2);
+				$resourcesTap3 =  ArticleDao::getInstance()->getResourcesArticle($idArticle,Constants::TAP3);
 				$antes = ArticleDao::getInstance()->getBeforeArticleById($idArticle,Yii::app()->session['restricted']);
 				$next = ArticleDao::getInstance()->getNextArticleById($idArticle,Yii::app()->session['restricted']);
-				$this->render('detailArticle',array('article'=>$article,'resourcesTap1'=>$resourcesTap1,
-						'resourcesTap2'=>$resourcesTap2,"antes"=>$antes,"next"=>$next));
+				$this->render('detailArticle',array('article'=>$article
+													,'resourcesTap1'=>$resourcesTap1
+													,'resourcesTap2'=>$resourcesTap2,
+													'resourcesTap3'=>$resourcesTap3
+													,"antes"=>$antes
+													,"next"=>$next));
 			}catch (Exception $e) {
 				//Yii::log("ERROR EN actionDetailArticle: $e","warning","ArticleController::actionDetailArticle");
 				throw new CHttpException(404,$e->getMessage());
