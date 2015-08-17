@@ -7,7 +7,7 @@
 						</a>
 		
 						<a href="<?=Yii::app()->request->baseUrl;?>" class="logo-collapsed">
-							<img src="http://pmstudykit.com/kitsgdp/images/nyce_logo.png" width="50%" alt="" />
+							<img src="http://pmstudykit.com/kitsgdp/images/nyce_logo.png" width="100%" alt="" />
 						</a>
 					</div>
 		
