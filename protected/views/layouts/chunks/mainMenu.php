@@ -6,7 +6,7 @@
 							<img src="http://pmstudykit.com/kitsgdp/images/nyce_logo.png" width="100%" alt="" />
 						</a>
 		
-						<a href="dashboard-1.html" class="logo-collapsed">
+						<a href="<?=Yii::app()->request->baseUrl;?>" class="logo-collapsed">
 							<img src="http://pmstudykit.com/kitsgdp/images/nyce_logo.png" width="50%" alt="" />
 						</a>
 					</div>
