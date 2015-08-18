@@ -81,5 +81,42 @@ class Querys{
 	
 	//notifcations
 	const GET_NOTIFICATIONS = "SELECT * FROM notifications";
+	
+	
+	/******Cuestionario*/
+	/*Recuperar las posibles respuestas a una deterinada pregunta
+	const GET_ALL_QUESTIONS = "SELECT * FROM questions, answers, `Questions_has_Answers`
+							where questions.level = 'basic' 
+							and questions.`idQuestions` = `Questions_has_Answers`.`Questions_idQuestions`
+							and `Questions_has_Answers`.`Answers_idAnswers` = answers.`idAnswers`
+							order by Questions.`number`";*/
+	
+								/*Recuperar las posibles respuestas a una deterinada pregunta*/
+    const GET_ALL_QUESTIONS =     "SELECT questions.text as questionText
+								   ,questions.number as questionNumber
+								   ,questions.type_control
+								   ,questions.level
+								   ,answers.position
+								   ,answers.`text` as answerText
+								   ,answers.value
+    							   ,Questions_has_Answers.idq_a as idResponse
+									 FROM questions, answers, `Questions_has_Answers`
+									where questions.level = 'basic' /*questions.`idQuestions` = 2*/
+									and questions.`idQuestions` = `Questions_has_Answers`.`Questions_idQuestions`
+									and `Questions_has_Answers`.`Answers_idAnswers` = answers.`idAnswers`
+    								and questions.number BETWEEN 1 AND 10
+									order by Questions.`number` ";
+	
+	
+	
+	/*Obtiene las respuestas de cada uno de los usuarios*/
+	const GET_ALL_RESPONSES = "SELECT * FROM general_data,`Questions`, `Questions_has_Answers`, answers, survey_responses
+								where Questions.`idQuestions` = `Questions_has_Answers`.`Questions_idQuestions`
+								and `Questions_has_Answers`.`Answers_idAnswers` = answers.`idAnswers`
+								and survey_responses.Questions_has_Answers_idq_a = Questions_has_Answers.idq_a
+								and general_data.idgeneral_data = survey_responses.general_data_idgeneral_data
+								/*and Questions.number =6*/
+								and general_data.idgeneral_data =1
+								order by survey_responses.general_data_idgeneral_data,Questions.`number`";
 }
 ?>

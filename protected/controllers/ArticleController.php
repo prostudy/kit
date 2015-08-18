@@ -108,6 +108,32 @@ class ArticleController extends Controller{
 	}
 	
 	public function actionSurvey(){//Listo
-		$this->render('survey',array());
+		if( UsersDao::getInstance()->validToken() ){
+			$questions = SurveyDao::getInstance()->getAllQuestions();
+			
+			$question = new Question();
+			
+			/*$orderQuestions = array();
+			$questionTpm = 0;
+			foreach ($questions as $question){
+				$questionText = $question['questionText'];
+				$questionNumber = $question['questionNumber'];
+				$questionTypeControl = $question['type_control'];
+				$questionlevel = $question['level'];
+				$answerPosition = $question['position'];
+				$answerText = $question['answerText'];
+				$idResponse =  $question['idResponse'];
+			
+				if($questionTpm < $questionNumber){
+					$questionTpm = $questionNumber;
+					array_push($orderQuestions, $questionText);
+				}else if ( $questionTpm == $questionNumber ){
+				}
+			}*/
+			
+			$this->render('survey',array("questions"=>$questions));
+		}else{
+			UtilsFunctions::destroySession();
+		}
 	}
 }

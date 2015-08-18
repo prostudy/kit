@@ -84,5 +84,7 @@ class Constants{
 	const CONTENT_COMPLETE = "Tu código es de venta, podras visualizar el contenido completo.";
 	const BACK_TO_HOME = "Regresar al SGDP";
 	
+	const NOT_FOUND_QUESTIONS = "Error: No se encontraron preguntas.";
+	
 }
 ?>

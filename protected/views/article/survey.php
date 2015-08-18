@@ -117,8 +117,46 @@
 								</div>
 								<div class="form-group-separator"></div>
 								
+						<?php
+						$questionTpm = 0;
+						$printSeparator = false;
+						foreach ($questions as $question){
+							echo "<br>";
+							$questionText = $question['questionText'];
+							$questionNumber = $question['questionNumber'];
+							$questionTypeControl = $question['type_control'];
+							$questionlevel = $question['level'];
+							
+							$answerPosition = $question['position'];
+							$answerText = $question['answerText'];
+							
+							$idResponse =  $question['idResponse'];
+										
+							if($questionTpm < $questionNumber){
+								$questionTpm = $questionNumber;
+								$printSeparator = true;
+								//echo "<br>".$questionText."<br>";?>
+								<label class="col-sm-12 "><?= $questionNumber.".-". $questionText?> </label>
+								<?php //echo $answerText?;
+								?>
+								<label class="text-primary"><input type="<?= $questionTypeControl ?>" name="radio-3" class="cbr cbr-turquoise"><?= $answerText ." (".$idResponse.")"?></label>
+							<?php  }else if ( $questionTpm == $questionNumber ){
+								//echo $answerText;
+								?>
+								<label class="text-primary"><input type="<?= $questionTypeControl ?>" name="radio-3" class="cbr cbr-turquoise"><?= $answerText ." (".$idResponse.")"?></label>
+						 	<?php }
+						 	
+						 	if($questionTpm < $questionNumber && $printSeparator  ){ $printSeparator = false;?>	<div class="form-group-separator"></div><?php }
+
+							
+						}?>
+						
+						
+						
+						
+					
 								<div class="form-group">
-								<label class="col-sm-12 ">3. ¿Cuál es el tamaño? </label>
+								<label class="col-sm-12 ">YAAAAAAA </label>
 									<div class="col-sm-12">
 										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">1-10 empleados </label>
 										<br/>
