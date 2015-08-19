@@ -104,7 +104,7 @@ class Querys{
 									where questions.level = 'basic' /*questions.`idQuestions` = 2*/
 									and questions.`idQuestions` = `Questions_has_Answers`.`Questions_idQuestions`
 									and `Questions_has_Answers`.`Answers_idAnswers` = answers.`idAnswers`
-    								and questions.number BETWEEN 1 AND 10
+    								/*and questions.number BETWEEN 1 AND 10*/
 									order by Questions.`number` ";
 	
 	

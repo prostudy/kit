@@ -3,7 +3,7 @@
 
 class Question {
 	
-	private $id;
+	
 	private $number;
 	private $text;
 	private $typeControl;
@@ -13,14 +13,6 @@ class Question {
 	public function Question(){
 	}
 	
-	
-	public function setId($id){
-		$this->id = $id;
-	}
-	
-	public function getId(){
-		return $this->id;
-	}
 	
 	public function setNumber($number){
 		$this->number = $number;

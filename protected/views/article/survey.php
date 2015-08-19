@@ -28,35 +28,16 @@
 			</div>
 		</div>
 	</div>
-	
-	
-	
-
 </div>
 
-			
 
-
-	
 			
-		
-	
-					
-			
-			
-			
-			
-			
-			
-			
-			
-			<div class="row">
-				<div class="col-sm-12">
-			
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Datos generales </h3>
-							<div class="panel-options">
+<div class="row">
+	<div class="col-sm-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Datos generales </h3>
+				<div class="panel-options">
 								<a href="#" data-toggle="panel">
 									<span class="collapse-icon">&ndash;</span>
 									<span class="expand-icon">+</span>
@@ -64,18 +45,13 @@
 								<a href="#" data-toggle="remove">
 									&times;
 								</a>
-							</div>
-						</div>
-						<div class="panel-body">
-						
-						
-			
-							<form role="form" class="form-horizontal">
-			
-								<div class="form-group">
-								<label class="col-sm-12 ">1.- ¿A qué sector pertenece su organización? </label>
-			
-									<div class="col-sm-12">
+				</div>
+			</div>
+			<div class="panel-body">
+				<form role="form" class="form-horizontal" action="#" method="post">
+					<div class="form-group">
+						<label class="col-sm-12 ">1.- ¿A qué sector pertenece su organización? </label>
+							<div class="col-sm-12">
 										<select class="form-control">
 											<option>Financiero</option>
 											<option>Salud</option>
@@ -85,7 +61,9 @@
 											<option>Industria/comercio/servicios</option>
 											<option>Otros</option>
 										</select>
-									</div>
+								</div>
+								
+								
 								</div>
 									
 								<div class="form-group">
@@ -117,429 +95,62 @@
 								</div>
 								<div class="form-group-separator"></div>
 								
-						<?php
-						$questionTpm = 0;
-						$printSeparator = false;
-						foreach ($questions as $question){
-							echo "<br>";
-							$questionText = $question['questionText'];
-							$questionNumber = $question['questionNumber'];
-							$questionTypeControl = $question['type_control'];
-							$questionlevel = $question['level'];
-							
-							$answerPosition = $question['position'];
-							$answerText = $question['answerText'];
-							
-							$idResponse =  $question['idResponse'];
+								<?php echo "El total de preguntas es:".count($arrayQuestions);
+										$numbersValidateQuestions = array();
+										foreach ($arrayQuestions as $question){
+										array_push($numbersValidateQuestions,$question->getNumber());
+										?>
+										<div class="form-group">
+											<label class="col-sm-12 "><?= $question->getNumber().".-".$question->getText()?></label>
+											<div class="col-sm-12">
+								<?php 		foreach ($question->getAnswers() as $answer){
+											if($question->getTypeControl() === "checkbox"){
+												?>
+												<label class="text-primary"><input value="<?=$answer->getIdResponse() ?>" type="<?= $question->getTypeControl() ?>" name="<?= "question_".$question->getNumber()."[]" ?>" class="cbr cbr-turquoise"><?= $answer->getText() /*. "(".$answer->getIdResponse().")"*/ ?> </label>
+											<?php }else{?>
+												<label class="text-primary"><input value="<?=$answer->getIdResponse() ?>" type="<?= $question->getTypeControl() ?>" name="<?= "question_".$question->getNumber()."[]" ?>" class="cbr cbr-turquoise"><?= $answer->getText() /*. "(".$answer->getIdResponse().")"*/ ?> </label>
+											<?php }?>
+												<br/>
+									<?php 	} ?></div>
+										</div>
+										<div class="form-group-separator"></div>
 										
-							if($questionTpm < $questionNumber){
-								$questionTpm = $questionNumber;
-								$printSeparator = true;
-								//echo "<br>".$questionText."<br>";?>
-								<label class="col-sm-12 "><?= $questionNumber.".-". $questionText?> </label>
-								<?php //echo $answerText?;
-								?>
-								<label class="text-primary"><input type="<?= $questionTypeControl ?>" name="radio-3" class="cbr cbr-turquoise"><?= $answerText ." (".$idResponse.")"?></label>
-							<?php  }else if ( $questionTpm == $questionNumber ){
-								//echo $answerText;
-								?>
-								<label class="text-primary"><input type="<?= $questionTypeControl ?>" name="radio-3" class="cbr cbr-turquoise"><?= $answerText ." (".$idResponse.")"?></label>
-						 	<?php }
-						 	
-						 	if($questionTpm < $questionNumber && $printSeparator  ){ $printSeparator = false;?>	<div class="form-group-separator"></div><?php }
-
+										
+								<?php }?>
+								
+								
+						<!-- <div class="panel-body panel-border">
+							<div class="row">
+								<div class="col-sm-12">									
+									<table class="table table-bordered table-striped">
+										<thead>
+											<tr>
+												<th>Elemento</th>
+												<th>No existe</th>
+												<th>Documentado</th>
+												<th>Parcialmente implementado</th>
+												<th>Implementado</th>
+											</tr>
+										</thead>
+										
+										<tbody>
+											<tr>
+												<td>1</td>
+												<td>Arlind</td>
+												<td>Nushi</td>
+												<td>Nushi</td>
+												<td>Nushi</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
 							
-						}?>
+						</div> -->
+								
 						
-						
-						
-						
-					
-								<div class="form-group">
-								<label class="col-sm-12 ">YAAAAAAA </label>
-									<div class="col-sm-12">
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">1-10 empleados </label>
-										<br/>
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">11 a 50 empleados</label>
-										<br/>
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">51 a  250 empleados</label>
-										<br/>
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">más de 250 empleados</label>
-										<br/>
-									</div>
-								</div>
-								<div class="form-group-separator"></div>
+								<input type="submit" name="submit" value="Submit"/>
 								
-								<div class="form-group">
-								<label class="col-sm-12 ">1.Conoce acerca de :</label>
-									<div class="col-sm-12">
-										<div class="col-sm-3">
-			
-										<div class="form-block">
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-										</div>
-			
-									</div>
-			
-									</div>
-								</div>
-								
-								<div class="form-group">
-								<label class="col-sm-12 ">2.	Identifica en la siguiente lista los tipos de datos que se tratan* en la organización:
-*Tratamiento: obtención, uso, acceso, monitoreo, procesamiento, divulgación, almacenamiento, respaldo, bloqueo, cancelación/supresión o destrucción
-(puede seleccionar más de una opción)
-</label>
-									<div class="col-sm-12">
-										<div class="col-sm-3">
-			
-										<div class="form-block">
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-										</div>
-			
-									</div>
-			
-									</div>
-								</div>
-								
-								<div class="form-group">
-								<label class="col-sm-12 ">3. Indica el volumen de datos personales que trata su organización:</label>
-									<div class="col-sm-12">
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">1-10 empleados </label>
-										<br/>
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">11 a 50 empleados</label>
-										<br/>
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">51 a  250 empleados</label>
-										<br/>
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">más de 250 empleados</label>
-										<br/>
-									</div>
-								</div>
-								
-								<div class="form-group">
-								<label class="col-sm-12 ">4.	¿Cuáles son los medios en donde se tratan los datos personales? (puede seleccionar más de una opción)</label>
-									<div class="col-sm-12">
-										<div class="col-sm-3">
-			
-										<div class="form-block">
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-										</div>
-			
-									</div>
-			
-									</div>
-								</div>
-								
-								<div class="form-group">
-								<label class="col-sm-12 ">5.	Selecciona los tipos de Avisos de privacidad con los que cuenta la organización:</label>
-									<div class="col-sm-12">
-										<div class="col-sm-3">
-			
-										<div class="form-block">
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-										</div>
-			
-									</div>
-			
-									</div>
-								</div>
-								
-								<div class="form-group">
-								<label class="col-sm-12 ">7. ¿Cuáles son las principales causas que consideras pueden afectar la seguridad de los datos personales?</label>
-									<div class="col-sm-12">
-										<div class="col-sm-3">
-			
-										<div class="form-block">
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-										</div>
-			
-									</div>
-			
-									</div>
-								</div>
-								
-								<div class="form-group">
-								<label class="col-sm-12 ">8. Consideras que el presupuesto destinado para implementar medidas para proteger los datos personales y cumplir con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares ha: </label>
-									<div class="col-sm-12">
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">1-10 empleados </label>
-										<br/>
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">11 a 50 empleados</label>
-										<br/>
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">51 a  250 empleados</label>
-										<br/>
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">más de 250 empleados</label>
-										<br/>
-									</div>
-								</div>
-								
-								<div class="form-group">
-								<label class="col-sm-12 ">9.	¿Se establecen convenios de confidencialidad y contratos que contengan cláusulas  que permitan la protección de los datos?</label>
-									<div class="col-sm-12">
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">1-10 empleados </label>
-										<br/>
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">11 a 50 empleados</label>
-										<br/>
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">51 a  250 empleados</label>
-										<br/>
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">más de 250 empleados</label>
-										<br/>
-									</div>
-								</div>
-								
-								<div class="form-group">
-								<label class="col-sm-12 ">10.	¿Conoces sobre las infracciones y sanciones que son aplicadas en caso de incumplimiento con la Ley Federal de Protección de  Datos Personales en Posesión de los Particulares?</label>
-									<div class="col-sm-12">
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">1-10 empleados </label>
-										<br/>
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">11 a 50 empleados</label>
-										<br/>
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">51 a  250 empleados</label>
-										<br/>
-										<label><input type="radio" name="radio-3" class="cbr cbr-turquoise">más de 250 empleados</label>
-										<br/>
-									</div>
-								</div>
-								
-								<div class="form-group">
-								<label class="col-sm-12 ">11. ¿Cuáles de las siguientes  medidas de seguridad físicas identificas en tu organización?</label>
-									<div class="col-sm-12">
-										<div class="col-sm-3">
-			
-										<div class="form-block">
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-										</div>
-			
-									</div>
-			
-									</div>
-								</div>
-								
-								<div class="form-group">
-								<label class="col-sm-12 ">12.	¿Cuáles de las siguientes  medidas de seguridad técnicas identificas en tu organización?</label>
-									<div class="col-sm-12">
-										<div class="col-sm-3">
-			
-										<div class="form-block">
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-										</div>
-			
-									</div>
-			
-									</div>
-								</div>
-								
-								<div class="form-group">
-								<label class="col-sm-12 ">13.-¿Cuáles de las siguientes  medidas de seguridad administrativas identificas en tu organización?</label>
-									<div class="col-sm-12">
-										<div class="col-sm-3">
-			
-										<div class="form-block">
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-											<label>
-												<input type="checkbox" class="cbr cbr-turquoise">
-												Turquoise color
-											</label><br/>
-										</div>
-			
-									</div>
-			
-									</div>
-								</div>
-								
-								
-								
-								
-								
-								
-								
-			
-								
-			
-			
-								
-			
-								
-								
-			
 							</form>
 			
 						</div>
@@ -550,8 +161,21 @@
 			
 			
 			
-			
-			
+<?php
+if(isset($_POST['submit'])){//to run PHP script on submit
+	foreach ($numbersValidateQuestions as $numberQuestion){
+		$name = 'question_'.$numberQuestion;
+		if(!empty($_POST[$name])){
+			// 	Loop to store and display values of individual checked checkbox.
+			foreach($_POST[$name] as $selected){
+	 			echo "RESPUESTAS PREGUNTA $numberQuestion:".$selected."</br>";
+			}
+		}else{
+			echo "No se selecciono la pregunta:".$numberQuestion."<br>";
+		}
+		}
+}
+?>	
 			
 			
 			

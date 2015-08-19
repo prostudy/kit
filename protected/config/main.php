@@ -66,7 +66,7 @@ return array(
 				
 				'emulatePrepare' => true,
 				
-				'username' => ($DEV_MODE) ? 'pmstu282_kitSGDP' : 'pmstu282_kitSGDP',
+				'username' => ($DEV_MODE) ? 'pmstu282_devSGD' : 'pmstu282_kitSGDP',
 				
 				'password' => ($DEV_MODE) ? 'k1tsgdp' : 'k1tsgdp',
 				
