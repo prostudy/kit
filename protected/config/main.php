@@ -62,7 +62,7 @@ return array(
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',*/
-				'connectionString' => ($DEV_MODE) ? 'mysql:host=localhost; dbname=pmstu282_devSGD' : 'mysql:host=localhost; dbname=pmstu282_kitSGDP',
+				'connectionString' => ($DEV_MODE) ? 'mysql:host=localhost; dbname=pmstu282_dev_kitSGDP' : 'mysql:host=localhost; dbname=pmstu282_kitSGDP',
 				
 				'emulatePrepare' => true,
 				

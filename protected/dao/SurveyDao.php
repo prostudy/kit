@@ -19,6 +19,28 @@ class SurveyDao{
 		}
 		return self::$instance;
 	}
+	
+	public function getSelectSector(){
+		$connection=Yii::app()->db;
+		$sql =  Querys::GET_SELECT_SECTOR;
+		$command = $connection->createCommand($sql);
+		$data = $command->query();
+		return $data;
+		throw new Exception(Constants::NOT_FOUND_SECTORS);
+		$connection->active=false;
+	}
+	
+	public function getSelectSectorType($sector){
+		$connection=Yii::app()->db;
+		$sql =  Querys::GET_TYPE_SECTOR;
+		$command = $connection->createCommand($sql);
+		$index = 0;
+		$command->bindValue(++$index,$sector,PDO::PARAM_INT);
+		$data = $command->query();
+		return $data;
+		throw new Exception(Constants::NOT_FOUND_SECTORS);
+		$connection->active=false;
+	}
 
  	public function getAllQuestions(){
  		$connection=Yii::app()->db;

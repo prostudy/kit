@@ -113,7 +113,10 @@ class ArticleController extends Controller{
 	public function actionSurvey(){//Listo
 		if( UsersDao::getInstance()->validToken() ){
 			$questions = SurveyDao::getInstance()->getAllQuestions();
-			$this->render('survey',array("arrayQuestions"=>$questions));
+			$selectSector = SurveyDao::getInstance()->getSelectSector();
+			$selectTypeSector = SurveyDao::getInstance()->getSelectSectorType(2);
+			
+			$this->render('survey',array("arrayQuestions"=>$questions, "selectSector"=>$selectSector,"selectTypeSector"=>$selectTypeSector));
 		}else{
 			UtilsFunctions::destroySession();
 		}

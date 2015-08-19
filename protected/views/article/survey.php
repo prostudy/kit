@@ -52,17 +52,12 @@
 					<div class="form-group">
 						<label class="col-sm-12 ">1.- ¿A qué sector pertenece su organización? </label>
 							<div class="col-sm-12">
-										<select class="form-control">
-											<option>Financiero</option>
-											<option>Salud</option>
-											<option>Telecomunicaciones</option>
-											<option>Cámaras y asociaciones</option>
-											<option>Educación</option>
-											<option>Industria/comercio/servicios</option>
-											<option>Otros</option>
+										<select name="sector" class="form-control" '>
+										<?php foreach ($selectSector as $sector){ ?>
+											<option value="<?= $sector['idsector_catalog'] ?>"><?= $sector['name'] ?></option>
+										<?php } ?>	
 										</select>
 								</div>
-								
 								
 								</div>
 									
@@ -79,11 +74,9 @@
 			
 									<div class="col-sm-12">
 										<select class="form-control">
-										<option>Banco</option>					
-										<option>Seguro</option>
-										<option>Afore </option>
-										<option>Casa de bolsa</option>
-										<option>Fianzas</option>
+										<?php foreach ($selectTypeSector as $typeSector){ ?>
+											<option value="<?= $typeSector['idtype_sector_catalog'] ?>"><?= $typeSector['name'] ?></option>
+										<?php } ?>	
 										</select>
 									</div>
 								</div>
@@ -174,6 +167,8 @@ if(isset($_POST['submit'])){//to run PHP script on submit
 			echo "No se selecciono la pregunta:".$numberQuestion."<br>";
 		}
 		}
+		
+		if(!empty($_POST['sector'])){echo "Sector:".$_POST['sector'];}
 }
 ?>	
 			

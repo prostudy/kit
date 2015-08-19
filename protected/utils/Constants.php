@@ -85,6 +85,7 @@ class Constants{
 	const BACK_TO_HOME = "Regresar al SGDP";
 	
 	const NOT_FOUND_QUESTIONS = "Error: No se encontraron preguntas.";
+	const NOT_FOUND_SECTORS = "Error: No se encontraron registros en el catalogo.";
 	
 }
 ?>
