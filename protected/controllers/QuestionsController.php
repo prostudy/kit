@@ -23,7 +23,7 @@ class QuestionsController extends Controller{
 						//Yii::log($key ."\n","warning");
 						//Yii::log($element ."\n","warning");
 						foreach ($element as $key2=>$element2) {
-							Yii::log($key ."---" . $key2."==".$element2 ."\n","warning");
+							Yii::log("RESPUESTAS PREGUNTA: $key" ."-" . $key2."==".$element2 ."\n","warning");
 						}
 					}
 						

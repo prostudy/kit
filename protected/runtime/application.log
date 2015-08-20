@@ -1,108 +1,28 @@
-2015/08/21 00:00:50 [warning] [application] QuestionsForm---code==adasd
+2015/08/21 00:08:56 [warning] [application] RESPUESTAS PREGUNTA: QuestionsForm-code==asdsad
 
 in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
 in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:00:50 [warning] [application] QuestionsForm---estado==1
+2015/08/21 00:08:56 [warning] [application] RESPUESTAS PREGUNTA: QuestionsForm-estado==1
 
 in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
 in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:00:50 [warning] [application] question_1---0==6
+2015/08/21 00:08:56 [warning] [application] RESPUESTAS PREGUNTA: question_1-0==1
 
 in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
 in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:00:50 [warning] [application] question_1---1==7
+2015/08/21 00:08:56 [warning] [application] RESPUESTAS PREGUNTA: question_1-1==2
 
 in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
 in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:00:50 [warning] [application] question_1---2==8
+2015/08/21 00:08:56 [warning] [application] RESPUESTAS PREGUNTA: question_2-0==10
 
 in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
 in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:00:50 [warning] [application] question_1---3==9
+2015/08/21 00:08:56 [warning] [application] RESPUESTAS PREGUNTA: question_2-1==11
 
 in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
 in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:00:50 [warning] [application] question_5---0==39
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:00:50 [warning] [application] question_5---1==40
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:00:50 [warning] [application] question_5---2==41
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:00:50 [warning] [application] question_5---3==42
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:00:50 [warning] [application] question_5---4==43
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:00:50 [warning] [application] question_5---5==44
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:00:50 [warning] [application] question_6---0==29
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:01:57 [warning] [application] QuestionsForm---code==adasd
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:01:57 [warning] [application] QuestionsForm---estado==1
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:01:57 [warning] [application] question_1---0==6
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:01:57 [warning] [application] question_1---1==7
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:01:57 [warning] [application] question_1---2==8
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:01:57 [warning] [application] question_1---3==9
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:01:57 [warning] [application] question_5---0==39
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:01:57 [warning] [application] question_5---1==40
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:01:57 [warning] [application] question_5---2==41
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:01:57 [warning] [application] question_5---3==42
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:01:57 [warning] [application] question_5---4==43
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:01:57 [warning] [application] question_5---5==44
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:01:57 [warning] [application] question_6---0==29
-
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/21 00:01:57 [warning] [application] question_27---0==139
+2015/08/21 00:08:56 [warning] [application] RESPUESTAS PREGUNTA: question_3-0==26
 
 in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
 in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
