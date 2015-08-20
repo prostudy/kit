@@ -9,6 +9,7 @@ class Question {
 	private $typeControl;
 	private $level;
 	private $answers;
+	public $respuestas;
 
 	public function Question(){
 	}

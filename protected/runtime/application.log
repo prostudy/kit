@@ -1,47 +1,108 @@
-2015/08/19 23:07:31 [error] [php] Missing argument 1 for SurveyDao::getSelectSectorType(), called in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/ArticleController.php on line 117 and defined (/Applications/XAMPP/xamppfiles/htdocs/kit/protected/dao/SurveyDao.php:33)
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
-#1 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(286): ArticleController->runAction()
-#2 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
-#3 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php(282): ArticleController->run()
-#4 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
-#5 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
-#6 /Applications/XAMPP/xamppfiles/htdocs/kit/index.php(13): CWebApplication->run()
-REQUEST_URI=/kit/index.php?r=Article/survey
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/dao/SurveyDao.php (33)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/ArticleController.php (117)
+2015/08/21 00:00:50 [warning] [application] QuestionsForm---code==adasd
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
 in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/19 23:27:14 [error] [php] Illegal string offset 'name' (/Applications/XAMPP/xamppfiles/htdocs/kit/protected/views/article/survey.php:59)
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(869): ArticleController->renderFile()
-#1 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(782): ArticleController->renderPartial()
-#2 /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/ArticleController.php(119): ArticleController->render()
-#3 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/actions/CInlineAction.php(49): ArticleController->actionSurvey()
-#4 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
-#5 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(286): ArticleController->runAction()
-#6 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
-#7 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php(282): ArticleController->run()
-#8 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
-#9 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
-#10 /Applications/XAMPP/xamppfiles/htdocs/kit/index.php(13): CWebApplication->run()
-REQUEST_URI=/kit/index.php?r=Article/survey
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/views/article/survey.php (59)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/ArticleController.php (119)
+2015/08/21 00:00:50 [warning] [application] QuestionsForm---estado==1
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
 in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
-2015/08/19 23:27:46 [error] [php] Undefined variable: sector (/Applications/XAMPP/xamppfiles/htdocs/kit/protected/views/article/survey.php:59)
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(869): ArticleController->renderFile()
-#1 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(782): ArticleController->renderPartial()
-#2 /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/ArticleController.php(119): ArticleController->render()
-#3 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/actions/CInlineAction.php(49): ArticleController->actionSurvey()
-#4 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
-#5 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(286): ArticleController->runAction()
-#6 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(265): ArticleController->runActionWithFilters()
-#7 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php(282): ArticleController->run()
-#8 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
-#9 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
-#10 /Applications/XAMPP/xamppfiles/htdocs/kit/index.php(13): CWebApplication->run()
-REQUEST_URI=/kit/index.php?r=Article/survey
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/views/article/survey.php (59)
-in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/ArticleController.php (119)
+2015/08/21 00:00:50 [warning] [application] question_1---0==6
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:00:50 [warning] [application] question_1---1==7
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:00:50 [warning] [application] question_1---2==8
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:00:50 [warning] [application] question_1---3==9
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:00:50 [warning] [application] question_5---0==39
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:00:50 [warning] [application] question_5---1==40
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:00:50 [warning] [application] question_5---2==41
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:00:50 [warning] [application] question_5---3==42
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:00:50 [warning] [application] question_5---4==43
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:00:50 [warning] [application] question_5---5==44
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:00:50 [warning] [application] question_6---0==29
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:01:57 [warning] [application] QuestionsForm---code==adasd
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:01:57 [warning] [application] QuestionsForm---estado==1
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:01:57 [warning] [application] question_1---0==6
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:01:57 [warning] [application] question_1---1==7
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:01:57 [warning] [application] question_1---2==8
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:01:57 [warning] [application] question_1---3==9
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:01:57 [warning] [application] question_5---0==39
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:01:57 [warning] [application] question_5---1==40
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:01:57 [warning] [application] question_5---2==41
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:01:57 [warning] [application] question_5---3==42
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:01:57 [warning] [application] question_5---4==43
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:01:57 [warning] [application] question_5---5==44
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:01:57 [warning] [application] question_6---0==29
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
+in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)
+2015/08/21 00:01:57 [warning] [application] question_27---0==139
+
+in /Applications/XAMPP/xamppfiles/htdocs/kit/protected/controllers/QuestionsController.php (26)
 in /Applications/XAMPP/xamppfiles/htdocs/kit/index.php (13)

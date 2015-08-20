@@ -50,6 +50,7 @@ class SurveyDao{
  		
  		$orderQuestions = array();
  		$arrayAnswers = array();
+ 		$arrayRespuestas= array();
  		$questionTpm = 0;
  		foreach ($data as $quest){
  			$questionNumber =  $quest['questionNumber'];
@@ -58,6 +59,7 @@ class SurveyDao{
  				$question = new Question();
  				$answer = new Answer();
  				$arrayAnswers = array();
+ 				$arrayRespuestas = array();
  				$questionTpm = $quest['questionNumber'];
  				$question->setNumber($quest['questionNumber']);
  				$question->setText($quest['questionText']);
@@ -66,15 +68,19 @@ class SurveyDao{
 
  				$answer->setIdResponse($quest['idResponse']);
  				$answer->setText($quest['answerText']);
+ 				array_push($arrayRespuestas,$quest['answerText']);
  				array_push($arrayAnswers,$answer);
  				$question->setAnswers($arrayAnswers);
  				array_push($orderQuestions, $question);
+ 				//$question->respuestas = $arrayRespuestas;
  			}else if ( $questionTpm == $questionNumber ){
  				$answer = new Answer();
  				$answer->setIdResponse($quest['idResponse']);
  				$answer->setText($quest['answerText']);
  				array_push($arrayAnswers, $answer);
  				$question->setAnswers($arrayAnswers);
+				array_push($arrayRespuestas,$quest['answerText']);
+ 				$question->respuestas = $arrayRespuestas;
  			}
  		}
  		
