@@ -39,4 +39,19 @@ class QuestionsController extends Controller{
 									,"selectSector"=>$selectSector
 									,"selectTypeSector"=>$selectTypeSector));
 	}
+	
+	public function actionDynamiccities(){
+		$data = SurveyDao::getInstance()->getSelectSectorType($_POST['country_id']);
+		
+		/*data = Location::model()->findAll('parent_id=:parent_id',
+		array(':parent_id'=>(int) $_POST['	idtype_sector_catalog']));*/
+		
+		$data=CHtml::listData($data,'idtype_sector_catalog','name');
+		foreach($data as $value=>$name)
+		{
+			echo CHtml::tag('option',
+					array('value'=>$value),CHtml::encode($name),true);
+		}
+	}
+	
 }
