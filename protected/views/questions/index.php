@@ -33,7 +33,6 @@
 			</div>
 
 			<div class="panel-body">
-			
 			<?php $form=$this->beginWidget('CActiveForm', array(
 				'id'=>'QuestionsForm',
 				'enableClientValidation'=>true,
@@ -41,45 +40,52 @@
 					'validateOnSubmit'=>true,
 				),
 			)); ?>
-
-
 	<?php //echo $form->errorSummary($model,$errorSummary); ?>
 	<?php echo $errorSummary; ?>
 
-	
-	
-	<div class="form-group text-success-nyce">
-		<?php echo 'Código proporcionado <span class="required">*</span><br/>'; ?>
-		<?php echo $form->textField($model,'code',array('maxlength'=>20,'value'=>'','placeholder'=>'Ingresa tu código...',"class"=>"form-control")); ?>
-		<?php echo $form->error($model,'code'); ?>
+		<!--  <div class="form-group text-success-nyce">
+	<label class="col-sm-12 ">1.- ¿A qué sector pertenece su organización? </label>
+		<select name="sector" class="form-control" '>
+		<?php foreach ($selectSector as $sector){ ?>
+			<option value="<?= $sector['idsector_catalog'] ?>"><?= $sector['name'] ?></option>
+		<?php } ?>	
+		</select>
 	</div>
 	
 	<div class="form-group text-success-nyce">
-		<?php echo 'Código proporcionado <span class="required">*</span><br/>'; ?>			
-		<?php echo $form->checkBox($model,'estado',  array('checked'=>'checked',"class"=>"cbr cbr-turquoise" )); ?>
+	<label class="col-sm-12 ">2.- ¿De qué tipo es? </label>
+		<select name="sectorType" class="form-control">
+		<?php foreach ($selectTypeSector as $typeSector){ ?>
+			<option value="<?= $typeSector['idtype_sector_catalog'] ?>"><?= $typeSector['name'] ?></option>
+		<?php } ?>	
+		</select>
+	</div>-->
+	
+	<div class="form-group text-success-nyce">
+		<label class="col-sm-12 ">3.- ¿Cuál es el tamaño? </label>
+		<label class="text-primary"><input value="1-10" type="radio" name="<?= "question_0"."[]" ?>" class="cbr cbr-turquoise">1-10 empleados</label><br/>
+		<label class="text-primary"><input value="11-50" type="radio" name="<?= "question_0"."[]" ?>" class="cbr cbr-turquoise">11 a 50 empleados</label><br/>
+		<label class="text-primary"><input value="51-250" type="radio" name="<?= "question_0"."[]" ?>" class="cbr cbr-turquoise">51 a  250 empleados</label><br/>
+		<label class="text-primary"><input value="mas250" type="radio" name="<?= "question_0"."[]" ?>" class="cbr cbr-turquoise">más de 250 empleados</label>	<br/>	      
+	</div>
+	
+	<div class="form-group text-success-nyce">
 		<?php //echo $form->checkBoxList($model,'estado',$arrayQuestions); ?>
+		<?php echo $form->hiddenField($model,'tamano',array('type'=>"hidden",'size'=>2,'maxlength'=>2)); ?>
 		
-		<?php echo $form->error($model,'estado'); ?>
+		<?php echo $form->error($model,'tamano'); ?>
 	</div>
 	
-	<?php  foreach ($arrayQuestions as $question){
-		echo  $question->getNumber().".-".$question->getText()."<br>";
-		//echo CHtml::activecheckBoxList($model, 'preguntas', $question->respuestas, array('separator' => '<br>', 'id' => 'chk_lst_id'));
-		//echo $form->checkBoxList($model,'preguntas',$question->respuestas,array('separator' => '<br>', 'id' => 'chk_lst_id',"value"=>'nada'));
-		
+	<?php  foreach ($questionsAndAnswers as $question){
+		echo '<div class="form-group text-success-nyce">';
+		echo  "<br/>".$question->getNumber().".-".$question->getText()."<br/>";		
 		foreach ($question->getAnswers() as $answer){
-			//echo $form->checkBox($model,'preguntas',  array('checked'=>'',"class"=>"cbr cbr-turquoise","value"=>$answer->getIdResponse()));
-			?><label class="text-primary"><input value="<?=$answer->getIdResponse() ?>" type="<?= $question->getTypeControl() ?>" name="<?= "question_".$question->getNumber()."[]" ?>" class="cbr cbr-turquoise"><?= $answer->getText() /*. "(".$answer->getIdResponse().")"*/ ?> </label>
-			<br/>
-						
-		<?php	//echo CHtml::activecheckBoxList($model, 'estado', $question->respuestas, array('separator' => '<br>', 'id' => 'chk_lst_id'));
-			//echo $answer->getText()."<br>";
+			?><label class="text-primary"><input value="<?=$answer->getIdResponse() ?>" type="<?= $question->getTypeControl() ?>" name="<?= "question_".$question->getNumber()."[]" ?>" class="cbr cbr-turquoise"><?= $answer->getText() . "(".$answer->getIdResponse().")" ?> </label>
+			<br/>			
+		<?php
 		}
-		echo "<br>";
+		
 	}?>
-	
-	
-	
 	
 	<div class="form-group text-right">
 		<button type="submit" class="btn btn-nyce btn-single">
@@ -104,8 +110,6 @@
 			</div>
 
 <?php $this->endWidget(); ?>
-
-
 <?php endif; ?>
 
 <script src="assets/js/inputmask/jquery.inputmask.bundle.js"></script>

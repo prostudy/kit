@@ -86,6 +86,9 @@ class Constants{
 	
 	const NOT_FOUND_QUESTIONS = "Error: No se encontraron preguntas.";
 	const NOT_FOUND_SECTORS = "Error: No se encontraron registros en el catalogo.";
+	const SECTOR_FIELD_EMPTY = 'Ingresa el sector de tu organización';
+	const SECTOR_TYPE_FIELD_EMPTY = 'Ingresa el tipo de sector de tu organización';
+	const TAMANO_FIELD_EMPTY = 'Ingresa el tamaño de tu organización';
 	
 }
 ?>

@@ -2,30 +2,21 @@
 /**
  * QuestionsForm.php class.
  * QuestionsForm.php is the data structure for keeping
- * register code form data. It is used by the 'registerCode' action of 'SiteController'.
+ * 
  */
 class QuestionsForm extends CFormModel{
-	public $code;
-	public $estado;
-	public $preguntas = array();
-	/*public $name;
-	public $lastname;
-	public $password;*/
+	/*public $sector;
+	public $tipoSector;*/
+	public $tamano;
 
 	/**
 	 * Declares the validation rules.
 	 */
 	public function rules(){
 		return array(
-			array('code','required','message'=>Constants::CODE_FIELD_EMPTY),
-		    array('preguntas','safe'),
-				array('estado','safe'),
-			/*array('email','required','message'=>Constants::EMAIL_FIELD_EMPTY),
-			array('name','required','message'=>Constants::NAME_FIELD_EMPTY),
-			array('lastname','required','message'=>Constants::LASTNAME_FIELD_EMPTY),
-			array('password','required','message'=>Constants::PASSWORD_FIELD_EMPTY),
-			array('password','length', 'min' => 5,'tooShort'=>Yii::t("translation", Constants::PASSWORD_TOOSHORT)),
-			array('email', 'email','message'=>Constants::EMAIL_FIELD_WRONG_FORMAT),*/
+			//array('sector','required','message'=>Constants::SECTOR_FIELD_EMPTY),
+		    //array('tipoSector','required','message'=>Constants::SECTOR_TYPE_FIELD_EMPTY),
+			array('tamano','safe'),
 		);
 	}
 	/**
