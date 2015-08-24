@@ -1,3 +1,36 @@
+<div class="page-title">
+			
+	<div class="title-env">
+		<h1 class="title">Cuestionario diagnostico</h1>
+		<p class="description">Cuestionario para conocer el estado de cumplimiento sobre la LFPDPPP y demás normativa aplicable. </p>
+	</div>
+			
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-color panel-gray"><!-- Add class "collapsed" to minimize the panel -->
+			<div class="panel-heading">
+				<h3 class="panel-title">Normalización y Certificación Electrónica NYCE S.C. le informa:</h3>
+							</div>
+			<div class="panel-body content_article">
+				<p>El objetivo del siguiente cuestionario es que usted realice una autoevaluaci&oacute;n acerca del cumplimiento que tiene su organizaci&oacute;n con la Ley Federal de Protecci&oacute;n de Datos Personales en Posesi&oacute;n de los Particulares.</p>
+				
+				<p>Los beneficios que obtiene son:</p>
+				
+				<ol>
+					<li>Conocer el estado en que se encuentra su organizaci&oacute;n en cuanto al grado de cumplimiento tomando como referencia &nbsp;la Ley Federal de Protecci&oacute;n de Datos Personales en Posesi&oacute;n de los Particulares y dem&aacute;s normativa aplicable en la materia.</li>
+					<li>Brindarle una visi&oacute;n m&aacute;s amplia sobre los elementos m&iacute;nimos &nbsp;que deben implementar las organizaciones para cumplir con la legislaci&oacute;n aplicable en materia de datos personales.</li>
+					<li>Proporcionarle gr&aacute;ficos estad&iacute;sticos de los cuales se pueden identificar &aacute;reas de oportunidad y el grado de cumplimiento de diferentes sectores de la industria.</li>
+				</ol>
+				
+				<p>NYCE se compromete a que sus datos ser&aacute;n tratados de forma confidencial, &eacute;stos no ser&aacute;n compartidos con ninguna autoridad o empresa y no se derivar&aacute;n revisiones posteriores por parte de la autoridad. Los resultados ser&aacute;n utilizados con fines estad&iacute;sticos.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 <?php if(Yii::app()->user->hasFlash('registerCode')): ?>
 <div class="page-error centered">
 	<img src="http://pmstudykit.com/kitsgdp/images/nyce_logo.png" alt="" width="170" /><br/>
@@ -29,7 +62,7 @@
 	<div class="col-sm-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h4 class="text-success-nyce">Tu kit cuenta con un código único, registralo junto con tus datos para activarlo.</h4>
+				<h4 class="text-success-nyce">Datos generales</h4>
 			</div>
 
 			<div class="panel-body">
@@ -42,31 +75,31 @@
 			)); ?>
 	<?php //echo $form->errorSummary($model,$errorSummary); ?>
 	<?php echo $errorSummary; ?>
-
-		<!--  <div class="form-group text-success-nyce">
-	<label class="col-sm-12 ">1.- ¿A qué sector pertenece su organización? </label>
-		<select name="sector" class="form-control" '>
-		<?php foreach ($selectSector as $sector){ ?>
-			<option value="<?= $sector['idsector_catalog'] ?>"><?= $sector['name'] ?></option>
-		<?php } ?>	
-		</select>
-	</div>
 	
 	<div class="form-group text-success-nyce">
-	<label class="col-sm-12 ">2.- ¿De qué tipo es? </label>
-		<select name="sectorType" class="form-control">
-		<?php foreach ($selectTypeSector as $typeSector){ ?>
-			<option value="<?= $typeSector['idtype_sector_catalog'] ?>"><?= $typeSector['name'] ?></option>
-		<?php } ?>	
-		</select>
-	</div>-->
+	<label class="col-sm-12 ">1.- ¿A qué sector pertenece su organización? </label>
+	<?php
+	echo CHtml::dropDownList('sector_id','', $selectSector,
+			array(
+					'ajax' => array(
+							'type'=>'POST', //request type
+							'url'=>CController::createUrl('Questions/DynamicSelects'), //url to call.
+							//Style: CController::createUrl('currentController/methodToCall')
+							'update'=>'#sector_type_id', //selector to update
+							//'data'=>'js:javascript statement'
+					//leave out the data key to pass all form values through
+					)));
+	echo "</div>";
+	//empty since it will be filled by the other dropdown
+	echo '<div class="form-group text-success-nyce"><label class="col-sm-12 ">2.- ¿De qué tipo es? </label>';
+	echo CHtml::dropDownList('sector_type_id','', $selectTypeSector);
+	echo "</div>";
+	?>
+	
 	
 	<div class="form-group text-success-nyce">
 		<label class="col-sm-12 ">3.- ¿Cuál es el tamaño? </label>
-		<label class="text-primary"><input value="1-10" type="radio" name="<?= "question_0"."[]" ?>" class="cbr cbr-turquoise">1-10 empleados</label><br/>
-		<label class="text-primary"><input value="11-50" type="radio" name="<?= "question_0"."[]" ?>" class="cbr cbr-turquoise">11 a 50 empleados</label><br/>
-		<label class="text-primary"><input value="51-250" type="radio" name="<?= "question_0"."[]" ?>" class="cbr cbr-turquoise">51 a  250 empleados</label><br/>
-		<label class="text-primary"><input value="mas250" type="radio" name="<?= "question_0"."[]" ?>" class="cbr cbr-turquoise">más de 250 empleados</label>	<br/>	      
+		<?php echo CHtml::dropDownList('select_size','', $selectSize);?>   
 	</div>
 	
 	<div class="form-group text-success-nyce">
@@ -84,24 +117,9 @@
 			<br/>			
 		<?php
 		}
-		
+		echo "</div>";
 	}
-	
-	echo CHtml::dropDownList('country_id','', array(1=>'USA', 2=>'France', 5=>'France',6=>'OTROS'),
-			array(
-					'ajax' => array(
-							'type'=>'POST', //request type
-							'url'=>CController::createUrl('Questions/dynamiccities'), //url to call.
-							//Style: CController::createUrl('currentController/methodToCall')
-							'update'=>'#city_id', //selector to update
-							//'data'=>'js:javascript statement'
-					//leave out the data key to pass all form values through
-					)));
-	
-	//empty since it will be filled by the other dropdown
-	echo CHtml::dropDownList('city_id','', array());
 	?>
-	
 	
 	
 	<div class="form-group text-right">
@@ -109,7 +127,7 @@
 			<i class="fa-check"></i>
 			Registrar código
 		</button>	
-		<p class="note">Los campos marcados <span class="required">*</span> son necesarios.</p>
+		<!-- <p class="note">Los campos marcados <span class="required">*</span> son necesarios.</p> -->
 		<?php //echo CHtml::submitButton('Submit'); ?>
 		
 		

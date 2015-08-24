@@ -25,7 +25,12 @@ class SurveyDao{
 		$sql =  Querys::GET_SELECT_SECTOR;
 		$command = $connection->createCommand($sql);
 		$data = $command->query();
-		return $data;
+		$sectores = array();
+		foreach ($data as $sector){
+			$id = $sector['idsector_catalog'];
+			$sectores[$id] =  $sector['name'];
+		}
+		return $sectores;
 		throw new Exception(Constants::NOT_FOUND_SECTORS);
 		$connection->active=false;
 	}
@@ -37,7 +42,27 @@ class SurveyDao{
 		$index = 0;
 		$command->bindValue(++$index,$sector,PDO::PARAM_INT);
 		$data = $command->query();
+		foreach ($data as $sector){
+			$id = $sector['idtype_sector_catalog'];
+			$sectores[$id] =  $sector['name'];
+		}
+		return $sectores;
 		return $data;
+		throw new Exception(Constants::NOT_FOUND_SECTORS);
+		$connection->active=false;
+	}
+	
+	public function getSelectSize(){
+		$connection=Yii::app()->db;
+		$sql =  Querys::GET_SELECT_SIZE;
+		$command = $connection->createCommand($sql);
+		$data = $command->query();
+		$size = array();
+		foreach ($data as $sector){
+			$id = $sector['idsize_catalog'];
+			$size[$id] =  $sector['name'];
+		}
+		return $size;
 		throw new Exception(Constants::NOT_FOUND_SECTORS);
 		$connection->active=false;
 	}
@@ -87,6 +112,63 @@ class SurveyDao{
  		return $orderQuestions;
  		throw new Exception(Constants::NOT_FOUND_QUESTIONS);
  		$connection->active=false;
+ 	}
+ 	
+ 	
+ 	public function registerGeneralData($users_idusers,$folio,$sector,$sectorType,$idsize_catalog){
+ 		$registerTestSuccess = false;
+ 		try{
+ 			$sql = Querys::INSERT_GENERAL_DATA;
+ 			$parameters = array(":users_idusers"=>$users_idusers
+ 								,':folio'=>$folio
+ 								,":type_sector_catalog_idtype_sector_catalog"=>$sector
+ 								,"type_sector_catalog_sector_catalog_idsector_catalog"=>$sectorType
+ 								,"idsize_catalog" => $idsize_catalog
+ 								,':createdon' => date('Y-m-d H:i:s'));
+ 			Yii::app()->db->createCommand($sql)->execute($parameters);
+ 			$registerTestSuccess = true;
+ 		}catch (Exception $exception){
+ 			throw new Exception(Constants::NOT_INSERT_GENERAL_DATA);
+ 			Yii::log("ERROR EN registerGeneralData: $exception","warning","SurveyDao->registerGeneralData");
+ 			$registerTestSuccess = false;
+ 		}
+ 		return $registerTestSuccess;
+ 	}
+ 	
+ 	public function registerResponses($general_data_folio,$Questions_has_Answers_idq_a){
+ 		$registerTestSuccess = false;
+ 		try{
+ 			$sql = Querys::INSERT_RESPONSES;
+ 			$parameters = array(":general_data_folio"=>$general_data_folio ,':Questions_has_Answers_idq_a'=>$Questions_has_Answers_idq_a);
+ 			Yii::app()->db->createCommand($sql)->execute($parameters);
+ 			$registerTestSuccess = true;
+ 		}catch (Exception $exception){
+ 			throw new Exception(Constants::NOT_INSERT_RESPONSES);
+ 			Yii::log("ERROR EN registerResponses: $exception","warning","SurveyDao->registerResponses");
+ 			$registerTestSuccess = false;
+ 		}
+ 		return $registerTestSuccess;
+ 	}
+ 	
+ 
+ 	public function userAlreadyResponseTest($iduser){
+ 		$exitsCode = false;
+ 		$connection=Yii::app()->db;
+ 		try{
+ 			$sql = Querys::USER_ALREADY_RESPONSE_TEST;
+ 			$command = $connection->createCommand($sql);
+ 			$index = 0;
+ 			$command->bindValue(++$index,$iduser,PDO::PARAM_INT);
+ 			$data = $command->query();
+ 			foreach($data as $row) {
+ 				$exitsCode = true;
+ 				//Yii::log("El codigo:".$row['code']." ya esta registrado.","warning");
+ 			}
+ 		}catch (Exception $exception){
+ 			Yii::log("ERROR EN SurveyDao: $exception","warning","SurveyDao->userAlreadyResponseTest");
+ 		}
+ 		$connection->active=false;
+ 		return $exitsCode;
  	}
  	
  	

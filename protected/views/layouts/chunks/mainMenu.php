@@ -201,7 +201,7 @@
 					</li>	
 					<?php }?>
 					<li>
-						<a href="<?php echo Yii::app()->createAbsoluteUrl("Article/survey"); ?>">
+						<a href="<?php echo Yii::app()->createAbsoluteUrl("Questions"); ?>">
 							<i class="fa-question"></i>
 							<span class="title">Cuestionario</span>
 						</a>

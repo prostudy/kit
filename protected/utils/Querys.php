@@ -84,8 +84,9 @@ class Querys{
 	
 	
 	/******Cuestionario*/
-	const GET_SELECT_SECTOR = "SELECT * FROM `sector_catalog`";
+	const GET_SELECT_SECTOR = "SELECT * FROM `sector_catalog` where idsector_catalog in (1,2,5,6,7)";
 	const GET_TYPE_SECTOR = "SELECT * FROM `type_sector_catalog` where `sector_catalog_idsector_catalog` = ?";
+	const GET_SELECT_SIZE = "SELECT * FROM `size_catalog`";
 	
 	/*Recuperar las posibles respuestas a una deterinada pregunta
 	const GET_ALL_QUESTIONS = "SELECT * FROM questions, answers, `Questions_has_Answers`
@@ -109,16 +110,26 @@ class Querys{
 									AND  `Questions_has_Answers`.`Answers_idAnswers` = Answers.`idAnswers` /*and questions.number BETWEEN 1 AND 10*/
 									ORDER BY Questions.`number`";
 	
+	const INSERT_GENERAL_DATA = "INSERT INTO general_data (users_idusers,folio ,type_sector_catalog_idtype_sector_catalog, type_sector_catalog_sector_catalog_idsector_catalog,idsize_catalog, createdon) 
+												  VALUES (:users_idusers, :folio, :type_sector_catalog_idtype_sector_catalog, :type_sector_catalog_sector_catalog_idsector_catalog,:idsize_catalog,:createdon)";
+	
+	const INSERT_RESPONSES = "INSERT INTO survey_responses (general_data_folio, Questions_has_Answers_idq_a) VALUES (:general_data_folio, :Questions_has_Answers_idq_a)";
+	
+	
 	
 	
 	/*Obtiene las respuestas de cada uno de los usuarios*/
 	const GET_ALL_RESPONSES = "SELECT * 
-								FROM general_data,  `Questions` ,  `Questions_has_Answers` , Answers, survey_responses
+								FROM general_data,  `Questions` ,  `Questions_has_Answers` , Answers, survey_responses /*,users*/
 								WHERE Questions.`idQuestions` =  `Questions_has_Answers`.`Questions_idQuestions` 
 								AND  `Questions_has_Answers`.`Answers_idAnswers` = Answers.`idAnswers` 
 								AND survey_responses.Questions_has_Answers_idq_a = Questions_has_Answers.idq_a
-								AND general_data.idgeneral_data = survey_responses.general_data_idgeneral_data/*and Questions.number =6*/
-								AND general_data.idgeneral_data =1
-								ORDER BY survey_responses.general_data_idgeneral_data, Questions.`number` ";
+								AND general_data.folio= survey_responses.general_data_folio	/*and Questions.number =6*/
+								/*AND general_data.folio = '8e1ce56ec51b29a'*/
+								/*and users.idusers = general_data.`users_idusers`
+								and general_data.`users_idusers` = 68*/
+								ORDER BY   general_data.createdon ,Questions.`number`	 ";
+	
+	const USER_ALREADY_RESPONSE_TEST = "SELECT * FROM general_data where users_idusers = ?";
 }
 ?>

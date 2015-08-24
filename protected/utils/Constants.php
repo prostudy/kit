@@ -90,5 +90,12 @@ class Constants{
 	const SECTOR_TYPE_FIELD_EMPTY = 'Ingresa el tipo de sector de tu organización';
 	const TAMANO_FIELD_EMPTY = 'Ingresa el tamaño de tu organización';
 	
+	const SUCCESS_TEST = "Se ha finalizado el cuestionario.";
+	const ERROR_DATA_FORM_TEST = "Error: No se contestaron todas las preguntas.";
+	const NOT_INSERT_GENERAL_DATA = "Error: No se pudo registrar la información general.";
+	const NOT_INSERT_RESPONSES = "Error: No se pudieron registrar las respuestas.";
+	const USER_ALREADY_REPONSE_TEST = "El cuestionario ya ha sido contestado.";
+	
+	
 }
 ?>
