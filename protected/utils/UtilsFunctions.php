@@ -118,7 +118,7 @@ float: right;' target=_blank>
 				                   </div>
 				                   	
 				                   <div style='margin:20px 0'>
-				                   Normalización y Certificación Electrónica, S.C., NYCE</b> <a href='http://www.iasacomunicacion.com.mx/'>http://www.nyce.org.mx/</a>
+				                   Normalización y Certificación Electrónica, S.C., NYCE</b> <a href='http://www.nyce.org.mx/'>http://www.nyce.org.mx/</a>
 				                   </div>
 				                   <div style='margin:10px 5px;display:inline-block'></div>
 				                   	
