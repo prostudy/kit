@@ -131,5 +131,15 @@ class Querys{
 								ORDER BY   general_data.createdon ,Questions.`number`	 ";
 	
 	const USER_ALREADY_RESPONSE_TEST = "SELECT * FROM general_data where users_idusers = ?";
+	
+	
+	/*REportes*/
+	/*Datos para preguntas A,B,C*/
+	const GET_ALL_SECTORS_AND_SUBSECTORS = "SELECT  s.name as sector, t.name as subsector, count(*) as subsector_total, concat(count(*),' ',t.name) as resumen FROM general_data as g
+											,sector_catalog as s
+											,type_sector_catalog as t
+											where  g.type_sector_catalog_idtype_sector_catalog =  t.idtype_sector_catalog
+											and t.sector_catalog_idsector_catalog =  s.idsector_catalog
+											group by t.name	 order by s.name";
 }
 ?>

@@ -96,6 +96,8 @@ class Constants{
 	const NOT_INSERT_RESPONSES = "Error: No se pudieron registrar las respuestas.";
 	const USER_ALREADY_REPONSE_TEST = "El cuestionario ya ha sido contestado.";
 	
+	const REPORTS_ERROR = "ERROR EN LOS REPORTES.";
+	
 	
 }
 ?>

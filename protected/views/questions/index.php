@@ -77,7 +77,7 @@
 	<?php echo $errorSummary; ?>
 	
 	<div class="form-group text-success-nyce">
-	<label class="col-sm-12 ">1.- ¿A qué sector pertenece su organización? </label>
+	<label class="col-sm-12 ">A.- ¿A qué sector pertenece su organización? </label>
 	<?php
 	echo CHtml::dropDownList('sector_id','', $selectSector,
 			array(
@@ -91,14 +91,14 @@
 					)));
 	echo "</div>";
 	//empty since it will be filled by the other dropdown
-	echo '<div class="form-group text-success-nyce"><label class="col-sm-12 ">2.- ¿De qué tipo es? </label>';
+	echo '<div class="form-group text-success-nyce"><label class="col-sm-12 ">B.- ¿De qué tipo es? </label>';
 	echo CHtml::dropDownList('sector_type_id','', $selectTypeSector);
 	echo "</div>";
 	?>
 	
 	
 	<div class="form-group text-success-nyce">
-		<label class="col-sm-12 ">3.- ¿Cuál es el tamaño? </label>
+		<label class="col-sm-12 ">C.- ¿Cuál es el tamaño? </label>
 		<?php echo CHtml::dropDownList('select_size','', $selectSize);?>   
 	</div>
 	
@@ -125,18 +125,14 @@
 	<div class="form-group text-right">
 		<button type="submit" class="btn btn-nyce btn-single">
 			<i class="fa-check"></i>
-			Registrar código
+			Obtener reporte
 		</button>	
 		<!-- <p class="note">Los campos marcados <span class="required">*</span> son necesarios.</p> -->
 		<?php //echo CHtml::submitButton('Submit'); ?>
 		
 		
 	</div>
-	<div class="login-footer">
-				<div class="info-links text-right">
-					<a  href="<?= Constants::URL_AVISO_PRIVACIDAD?>" target="_blank">Aviso de Privacidad</a>
-				</div>
-	</div>
+	
 	
 	</div>
 					</div>

@@ -121,8 +121,8 @@ class SurveyDao{
  			$sql = Querys::INSERT_GENERAL_DATA;
  			$parameters = array(":users_idusers"=>$users_idusers
  								,':folio'=>$folio
- 								,":type_sector_catalog_idtype_sector_catalog"=>$sector
- 								,"type_sector_catalog_sector_catalog_idsector_catalog"=>$sectorType
+ 								,":type_sector_catalog_idtype_sector_catalog"=>$sectorType
+ 								,"type_sector_catalog_sector_catalog_idsector_catalog"=>$sector
  								,"idsize_catalog" => $idsize_catalog
  								,':createdon' => date('Y-m-d H:i:s'));
  			Yii::app()->db->createCommand($sql)->execute($parameters);
