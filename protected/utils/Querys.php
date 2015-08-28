@@ -134,6 +134,8 @@ class Querys{
 	
 	
 	/*REportes*/
+	const GET_TOTAL_SURVEYS = "SELECT * FROM general_data";
+	
 	/*Datos para preguntas A,B,C*/
 	const GET_ALL_SECTORS_AND_SUBSECTORS = "SELECT  s.name as sector, t.name as subsector, count(*) as subsector_total, concat(count(*),' ',t.name) as resumen FROM general_data as g
 											,sector_catalog as s
@@ -141,5 +143,47 @@ class Querys{
 											where  g.type_sector_catalog_idtype_sector_catalog =  t.idtype_sector_catalog
 											and t.sector_catalog_idsector_catalog =  s.idsector_catalog
 											group by t.name	 order by s.name";
+	
+	
+			
+	
+	/*Preguntas 1 a 5 y 22, a 28*/
+	const GET_SIMPLE_QUESTIONS = "SELECT *, count(*) as total FROM Answers,Questions_has_Answers,survey_responses
+									where Answers.idAnswers = Questions_has_Answers.Answers_idAnswers
+									and survey_responses.Questions_has_Answers_idq_a =Questions_has_Answers.idq_a
+									and Questions_has_Answers.Questions_idQuestions in (1,2,3,5,6,22,23,24,25,26,27,28)
+									group by Questions_has_Answers.Answers_idAnswers";
+	
+
+/*	se comprueba con esta y genera reportes por usuarios:
+	SELECT *
+	FROM general_data,  `Questions` ,  `Questions_has_Answers` , Answers, survey_responses ,users
+	WHERE Questions.`idQuestions` =  `Questions_has_Answers`.`Questions_idQuestions`
+	AND  `Questions_has_Answers`.`Answers_idAnswers` = Answers.`idAnswers`
+	AND survey_responses.Questions_has_Answers_idq_a = Questions_has_Answers.idq_a
+	AND general_data.folio= survey_responses.general_data_folio	/*and Questions.number =23*/
+	/*AND general_data.folio = '8e1ce56ec51b29a'*/
+/*	and users.idusers = general_data.`users_idusers`
+	and general_data.`users_idusers` = 68
+	ORDER BY   general_data.createdon ,Questions.`number`
+
+	*/
+	
+	const GET_RADIO_QUESTIONS = "SELECT *, count(*) as total, Answers.text as serie FROM Answers,Questions_has_Answers,survey_responses, Questions
+								where
+								Answers.idAnswers = Questions_has_Answers.Answers_idAnswers
+								and survey_responses.Questions_has_Answers_idq_a =Questions_has_Answers.idq_a
+								and Questions_has_Answers.Questions_idQuestions = ?
+								and Questions_has_Answers.Questions_idQuestions = Questions.idQuestions
+								group by Questions_has_Answers.Answers_idAnswers";
+	
+	//se valida la de arriba
+	/*SELECT *  FROM Answers,Questions_has_Answers,survey_responses
+	where
+	Answers.idAnswers = Questions_has_Answers.Answers_idAnswers
+	and survey_responses.Questions_has_Answers_idq_a =Questions_has_Answers.idq_a
+	and Questions_has_Answers.Questions_idQuestions = 4
+	*/
+
 }
 ?>
