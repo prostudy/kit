@@ -154,6 +154,13 @@ class Querys{
 									and Questions_has_Answers.Questions_idQuestions in (1,2,3,5,6,22,23,24,25,26,27,28)
 									group by Questions_has_Answers.Answers_idAnswers";
 	
+	const GET_SIMPLE_QUESTION_BY_ID = "SELECT *, count(*) as total, Questions.text as textQuestion, Answers.text as textAnswer FROM Answers,Questions_has_Answers,survey_responses,Questions
+									where Answers.idAnswers = Questions_has_Answers.Answers_idAnswers
+									and survey_responses.Questions_has_Answers_idq_a =Questions_has_Answers.idq_a
+									and Questions_has_Answers.Questions_idQuestions = ?
+									and Questions.idQuestions = Questions_has_Answers.Questions_idQuestions
+									group by Questions_has_Answers.Answers_idAnswers";
+	
 
 /*	se comprueba con esta y genera reportes por usuarios:
 	SELECT *

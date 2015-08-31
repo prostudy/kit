@@ -65,6 +65,21 @@ class ReportsDao{
 	}
 	
 	
+	
+	public function getSimpleQuestionById($id){
+		$connection=Yii::app()->db;
+		$sql =  Querys::GET_SIMPLE_QUESTION_BY_ID;
+		$command = $connection->createCommand($sql);
+		$index = 0;
+		$command->bindValue(++$index,$id,PDO::PARAM_INT);
+		$data = $command->query();
+		return $data;
+		throw new Exception(Constants::REPORTS_ERROR);
+		$connection->active=false;
+	}
+	
+	
+	
 }
 
 

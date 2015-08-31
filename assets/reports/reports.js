@@ -112,6 +112,44 @@
 						
 						
 						
+						/*Pregunta numero 1,2,3,5,6,22,23,24,25,26,27,28 
+						$('#'+idDiv).dxChart({
+						    dataSource: dataSourceQuestion,
+						    commonSeriesSettings: {
+						        argumentField: "text",
+						        type: "bar",
+						        hoverMode: "allArgumentPoints",
+						        selectionMode: "allArgumentPoints",
+						        label: {
+						            visible: true,
+						            format: "fixedPoint",
+						            precision: 0
+						        }
+						    },
+						    valueAxis: {
+						        title: {
+						            text: "Número de respuestas"
+						        }
+						    },
+						    series: series,
+						    title: textQuestion,
+						    tooltip: {
+						        enabled: true
+						    },
+						    legend: {
+						        verticalAlignment: "bottom",
+						        horizontalAlignment: "center"
+						    },
+						    onPointClick: function (e) {
+						        e.target.select();
+						    }
+						});*/
+						
+						
+						
+						
+						
+						
 
 						var dataSource = [{
 						    country: "Financiero",

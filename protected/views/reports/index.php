@@ -171,6 +171,134 @@
 						
 					</div>
 	</div>
+	<script src="assets/js/devexpress-web-14.1/js/globalize.min.js"></script>
+	<script src="assets/js/devexpress-web-14.1/js/dx.chartjs.js"></script>
+    <!-- Preguntas numero 1,2,3,5,6,22,23,24,25,26,27,28 -->
+    <?php foreach ($simpleQuestions as $question){?>
+    <div class="row">
+		<div class="col-sm-12">
+			<div class="chart-item-bg">
+				<div id="<?= $question['idDiv']?>"></div>
+			</div>
+		</div>
+	</div>
+    <script>
+    var dataSourceQuestion = <?php echo json_encode ($question['dataSource'] );?>;
+	var idDiv = <?php echo "'".$question['idDiv']."'";?>;
+	var textQuestion = <?php echo "'".$question['textQuestion']."'";?>;
+	$("#"+idDiv).dxChart({
+	    dataSource: dataSourceQuestion, 
+	    equalBarWidth: {
+            width: 25
+        },
+	    legend: {
+	        verticalAlignment: "bottom",
+	        horizontalAlignment: "center"
+	    },
+	    tooltip: {
+	        enabled: true
+	    },
+	    series: {
+	        argumentField: "text",
+	        valueField: "total",
+	        name: textQuestion,
+	        type: "bar",
+	        color: '#01A7A7'
+	    }
+	});
+
+	/*$("#"+idDiv).dxPieChart({
+	    
+	    dataSource: dataSourceQuestion,
+	    series: [
+	        {
+	            argumentField: "text",
+	            valueField: "total",
+	            label:{
+	                visible: true,
+	                connector:{
+	                    visible:true,           
+	                    width: 1
+	                }
+	            }
+	        }
+	    ],
+	    title: textQuestion ,
+	    onPointClick: function(e) {
+	        var point = e.target;
+	        point.isVisible() ? point.hide() : point.show();
+	    }
+	});*/
+
+	/*$("#"+idDiv).dxPieChart({
+	    dataSource: dataSourceQuestion,
+	    title: textQuestion ,
+	    legend: {
+	        orientation: "horizontal",
+	        itemTextPosition: "right",
+	        horizontalAlignment: "right",
+	        verticalAlignment: "bottom",
+	        columnCount: 4
+	    },
+	    series: [{
+	        argumentField: "text",
+	        valueField: "total",
+	        label: {
+	            visible: true,
+	            font: {
+	                size: 16
+	            },
+	            connector: {
+	                visible: true,
+	                width: 0.5
+	            },
+	            position: "columns",
+	            customizeText: function(arg) {
+	                return arg.valueText + " ( " + arg.percentText + ")";
+	            }
+	        }
+	    }]
+	});*/
+
+
+
+
+	$("#"+idDiv).dxChart({
+        rotated: true,
+        dataSource: dataSourceQuestion,
+        equalBarWidth: {
+            width: 25
+        },
+        series: {
+            label: {
+                visible: true
+            },
+            type: 'bar',
+            argumentField: 'text',
+            valueField: 'total',
+            color: '#01A7A7'
+        },
+        title: textQuestion,
+        argumentAxis: {
+            label: {
+                customizeText: function() {
+                    return this.valueText + '';
+                }
+            }
+        },
+        valueAxis: {
+            label: {
+                visible: false
+            }
+        },
+        legend: {
+            visible: false
+        }
+	});
+	
+    </script>
+	
+	<?php }?>
 	
 	<div class="row">						
 					
@@ -233,13 +361,10 @@
 					</div>
 				</div>
 	</div>
-	
 	<script>
 		var dataSourcePieSubsectors = <?php echo $dataSourcePieSubsectors;?>;
 		var getDataSourceBarSimpleQuestions = <?php echo $getDataSourceBarSimpleQuestions;?>;
 		var dataSourceRadioQuestions = <?php echo $dataSourceRadioQuestions	;?>;	
-		 
-		
 	</script>
 		<script src="<?=Yii::app()->request->baseUrl;?>/assets/reports/reports.js"></script>
 							
