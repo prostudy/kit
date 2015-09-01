@@ -7,11 +7,15 @@ class QuestionsController extends Controller{
 	 * Muestra el formulario de registro
 	 */
 	public function actionIndex(){
-		if ( SurveyDao::getInstance()->userAlreadyResponseTest( Yii::app()->session['id']) ){
-			Yii::app()->user->setFlash('registerCode',Constants::USER_ALREADY_REPONSE_TEST);
-			$this->render('index');
+		if( UsersDao::getInstance()->validToken() ){
+			if ( SurveyDao::getInstance()->userAlreadyResponseTest( Yii::app()->session['id']) ){
+				//Yii::app()->user->setFlash('registerCode',Constants::USER_ALREADY_REPONSE_TEST);
+				Yii::app()->runController('Reports/userReport/idUser/'.Yii::app()->session['id']);
+			}else{
+				self::showQuestions();
+			}
 		}else{
-			self::showQuestions();
+			UtilsFunctions::destroySession();
 		}
 	}
 	

@@ -80,7 +80,7 @@
 		</div>
 </div>
 
-<!-- Graficas de sectores y subsectores -->
+
 <div class="row">
 	<div class="col-sm-6">
 		<div class="chart-item-bg">
@@ -96,27 +96,93 @@
 </div>
 
 
-<div class="row">
-	<div class="col-sm-12">
-		<div class="chart-item-bg">
-			<div id="dataSourceRadioQuestions"></div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="chart-item-bg">
+				<div id="barSimpleQuestions" style="height: 320px; padding: 20px 0;"></div>
+			</div>
 		</div>
 	</div>
+	<div class="row">
+
+	<div class="col-md-12">
+				
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Preguntas Básicas (1-5 y 22-28)</h3>
+			<div class="panel-options">
+
+								<a href="#" data-toggle="panel">
+									<span class="collapse-icon">–</span>
+									<span class="expand-icon">+</span>
+								</a>
+
+								<a href="#" data-toggle="remove">
+									×
+								</a>
+							</div>
+		</div>
+		
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Respuesta</th>
+					<th>Total</th>
+					<th>Total</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+			<?php foreach ($answersSimpleQuestions as $answer){?>
+				<tr>
+					<td><?= $answer['id'] ?></td>
+					<td><?= $answer['answer'] ?></td>
+					<td><?= $answer['total'] ?></td>
+					<td class="middle-align">
+						<div class="progress">
+							<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<?= $answer['total']*10 ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $answer['total']*10 ?>%">
+								<span class="sr-only"><?= $answer['total'] ?></span>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<?php } ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+			
 </div>
 
 
-<script src="assets/js/devexpress-web-14.1/js/globalize.min.js"></script>
-<script src="assets/js/devexpress-web-14.1/js/dx.chartjs.js"></script>
-<!-- Preguntas numero 1,2,3,5,6,22,23,24,25,26,27,28 -->
-<?php foreach ($simpleQuestions as $question){?>
-<div class="row">
-	<div class="col-sm-12">
-		<div class="chart-item-bg">
-			<div id="<?= $question['idDiv']?>"></div>
+
+
+
+
+
+	<div class="row">
+					<div class="col-sm-12">
+						
+						<div class="chart-item-bg">
+							<div id="dataSourceRadioQuestions"></div>
+						</div>
+						
+					</div>
+	</div>
+	<script src="assets/js/devexpress-web-14.1/js/globalize.min.js"></script>
+	<script src="assets/js/devexpress-web-14.1/js/dx.chartjs.js"></script>
+    <!-- Preguntas numero 1,2,3,5,6,22,23,24,25,26,27,28 -->
+    <?php foreach ($simpleQuestions as $question){?>
+    <div class="row">
+		<div class="col-sm-12">
+			<div class="chart-item-bg">
+				<div id="<?= $question['idDiv']?>"></div>
+			</div>
 		</div>
 	</div>
-</div>
-<script>
+    <script>
     var dataSourceQuestion = <?php echo json_encode ($question['dataSource'] );?>;
 	var idDiv = <?php echo "'".$question['idDiv']."'";?>;
 	var textQuestion = <?php echo "'".$question['textQuestion']."'";?>;
@@ -194,6 +260,9 @@
 	    }]
 	});*/
 
+
+
+
 	$("#"+idDiv).dxChart({
         rotated: true,
         dataSource: dataSourceQuestion,
@@ -228,12 +297,74 @@
 	});
 	
     </script>
-
-<?php }?>
+	
+	<?php }?>
+	
+	<div class="row">						
+					
+					<div class="col-sm-12">
+						
+						<div class="chart-item-bg">
+							<div id="pie-chart"></div>
+						</div>
+					</div>
+	</div>
+	
+<div class="row">
+				<div class="col-sm-12">
+					
+					<div class="chart-item-bg">
+						<div id="pageviews-stats" style="height: 320px; padding: 20px 0;"></div>
+						
+						<div class="chart-entry-view">
+							<div class="chart-entry-label">
+								Pageviews
+							</div>
+							<div class="chart-entry-value">
+								<div class="sparkline first-month"></div>
+							</div>
+						</div>
+						
+						<div class="chart-entry-view">
+							<div class="chart-entry-label">
+								Visitors
+							</div>
+							<div class="chart-entry-value">
+								<div class="sparkline second-month"></div>
+							</div>
+						</div>
+						
+						<div class="chart-entry-view">
+							<div class="chart-entry-label">
+								Converted Sales
+							</div>
+							<div class="chart-entry-value">
+								<div class="sparkline third-month"></div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+	</div>
 	
 	
-<script>
-var dataSourcePieSubsectors = <?php echo $dataSourcePieSubsectors;?>;
-var dataSourceRadioQuestions = <?php echo $dataSourceRadioQuestions	;?>;	
-</script>
-<script src="<?=Yii::app()->request->baseUrl;?>/assets/reports/reports.js"></script>
+	
+	
+	
+	
+		
+	<div class="row">
+				<div class="col-sm-12">
+					
+					<div class="chart-item-bg">
+						<div id="spider"></div>
+					</div>
+				</div>
+	</div>
+	<script>
+		var dataSourcePieSubsectors = <?php echo $dataSourcePieSubsectors;?>;
+		var getDataSourceBarSimpleQuestions = <?php echo $getDataSourceBarSimpleQuestions;?>;
+		var dataSourceRadioQuestions = <?php echo $dataSourceRadioQuestions	;?>;	
+	</script>
+		<script src="<?=Yii::app()->request->baseUrl;?>/assets/reports/reports.js"></script>
+							

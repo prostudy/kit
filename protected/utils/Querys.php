@@ -23,9 +23,19 @@ class Querys{
 	
 	/*Querys para administracion*/
 	/*Listado de todos los codigos asignados.*/
-	const ALL_CODES = "SELECT codes.*, users.*, DATEDIFF(now(),users.activation_date) as dias FROM codes, users
+	const ALL_CODES = "SELECT codes.*, users.*, DATEDIFF(now(),users.activation_date) as dias, general_data.* FROM codes
+						inner join users
+						on  codes.idcodes = users.codes_idcodes
+						left join general_data
+						on general_data.`users_idusers` = users.idusers
+						order by codes.duration";
+	
+	/*"SELECT codes.*, users.*, DATEDIFF(now(),users.activation_date) as dias FROM codes, users
 						where codes.idcodes = users.codes_idcodes
-						order by codes.duration";//Listo
+						order by codes.duration";//Listo*/
+	
+	
+	
 	
 	
 	/*Listado de todos los codigos disponibles (no estan asigandos tdavia)*/
@@ -183,6 +193,27 @@ class Querys{
 								and Questions_has_Answers.Questions_idQuestions = ?
 								and Questions_has_Answers.Questions_idQuestions = Questions.idQuestions
 								group by Questions_has_Answers.Answers_idAnswers";
+	
+	const GET_RADIO_SPIDER_BY_USER = "SELECT *,Questions.text as question FROM Answers,Questions_has_Answers,survey_responses, Questions, general_data
+										where
+										Answers.idAnswers = Questions_has_Answers.Answers_idAnswers
+										and survey_responses.Questions_has_Answers_idq_a =Questions_has_Answers.idq_a
+										and Questions_has_Answers.Questions_idQuestions in  (4,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21)
+										and Questions_has_Answers.Questions_idQuestions = Questions.idQuestions
+										and general_data.`users_idusers` = ?
+										and general_data.folio = survey_responses.general_data_folio
+										order by Questions.number"; 
+	
+	const GET_ALL_USER_RESPONSES = "SELECT *, Questions.text as question, Answers.text as answer
+									FROM general_data,  `Questions` ,  `Questions_has_Answers` , Answers, survey_responses ,users
+									WHERE Questions.`idQuestions` =  `Questions_has_Answers`.`Questions_idQuestions`
+									AND  `Questions_has_Answers`.`Answers_idAnswers` = Answers.`idAnswers`
+									AND survey_responses.Questions_has_Answers_idq_a = Questions_has_Answers.idq_a
+									AND general_data.folio= survey_responses.general_data_folio	/*and Questions.number =23*/
+									/*AND general_data.folio = '8e1ce56ec51b29a'*/
+								   and users.idusers = general_data.`users_idusers`
+									and general_data.`users_idusers` = ?
+									ORDER BY   general_data.createdon ,Questions.`number`";
 	
 	//se valida la de arriba
 	/*SELECT *  FROM Answers,Questions_has_Answers,survey_responses

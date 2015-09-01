@@ -64,6 +64,31 @@ class ReportsDao{
 		$connection->active=false;
 	}
 	
+	public function getRadioSpiderByUser($id){
+		$connection=Yii::app()->db;
+		$sql =  Querys::GET_RADIO_SPIDER_BY_USER;
+		$command = $connection->createCommand($sql);
+		$index = 0;
+		$command->bindValue(++$index,$id,PDO::PARAM_INT);
+		$data = $command->queryAll();
+		return $data;
+		throw new Exception(Constants::REPORTS_ERROR);
+		$connection->active=false;
+	}
+	
+	public function getAllUserResponse($id){
+		$connection=Yii::app()->db;
+		$sql =  Querys::GET_ALL_USER_RESPONSES;
+		$command = $connection->createCommand($sql);
+		$index = 0;
+		$command->bindValue(++$index,$id,PDO::PARAM_INT);
+		$data = $command->queryAll();
+		return $data;
+		throw new Exception(Constants::REPORTS_ERROR);
+		$connection->active=false;
+	}
+	
+	
 	
 	
 	public function getSimpleQuestionById($id){

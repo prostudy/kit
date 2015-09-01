@@ -12,5 +12,9 @@
 								<a href="<?php echo Yii::app()->createUrl('Administrator/adminGenerator');?>">
 								<i class="fa-barcode"></i>Generador de códigos NYC</a>							
 							</li>
+							<li>
+								<a href="<?php echo Yii::app()->createUrl('Reports/');?>">
+								<i class="fa-bar-chart"></i>Estadísticas</a>							
+							</li>
 						</ol>
 				</div>

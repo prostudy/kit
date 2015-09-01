@@ -64,7 +64,9 @@
 										?>
 										<tr>
 											<th><a href="<?php echo Yii::app()->createAbsoluteUrl("Administrator/editUser&iduser=".$row['idusers']); ?>"><?= $row['name']?> <span class="co-name"><?= $row['lastname']?></span></a></th>
-											<td><?= $row['email']?></td>
+											<td><?= $row['email']?>	
+											<?php if($row['folio']){?> <a href="<?php  echo Yii::app()->createAbsoluteUrl("Reports/userReport/idUser/".$row['users_idusers']); ?>" ><i class="fa-bar-chart"></i> </a><?php }?>
+											</td>
 											<td><?= $row['code']?></td>
 											<td class=<?= $row['account_active'] == 0 ? "text-danger" : ""?>><?= $row['duration'] == 0  ? ($row['isadmin'] == 1 ? 'ADMIN' : 'COMPRADO') : "PROMOCIÓN" ?></td>
 										</tr>	

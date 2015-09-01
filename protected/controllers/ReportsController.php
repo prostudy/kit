@@ -11,19 +11,8 @@ class ReportsController extends Controller{
 				//Yii::app()->user->setFlash('registerCode',Constants::USER_ALREADY_REPONSE_TEST);		
 
 			$totalSurveys = ReportsDao::getInstance()->getTotalSurveys();
-			$simpleQuestionsResponse = self::getDataSourceBarSimpleQuestions();
-			$datasourceSimpleQuestions = $simpleQuestionsResponse['datasourceSimpleQuestions'];
-			$answers = $simpleQuestionsResponse['answers'];
-			
-			
-			/*$resposne1 = self::getSimpleQuestionById();
-			$dataSourceSimpleQuestion1 = $resposne1['dataSoruce'];
-			$series1 = $resposne1['series'];*/
-			
 			
 			$this->render('index',array('dataSourcePieSubsectors'=>json_encode(self::getDataSourcePieSubsectors())
-										,'getDataSourceBarSimpleQuestions'=>json_encode($datasourceSimpleQuestions) 
-										,'answersSimpleQuestions'=>($answers)	
 										,'totalSurveys'=>$totalSurveys
 										,'dataSourceRadioQuestions'=>json_encode(self::getRadioQuestions())
 										, "simpleQuestions"=>  self::getSimpleQuestion() ) );
@@ -47,31 +36,7 @@ class ReportsController extends Controller{
 		}		
 		return $dataSource;
 	}
-	
-	
-	private function getDataSourceBarSimpleQuestions(){
-		$answers = array();
-		$dataSource = array();
-		$response = array();
-		$data = ReportsDao::getInstance()->getAllSimpleQuestions();
-		foreach ($data as $row){
-			$object = array();
-			$object['id'] = $row['idq_a'];
-			$object['total'] = $row['total']+0;
-			array_push($dataSource, $object);
-			
-			$ans['answer'] = $row['text'];
-			$ans['id'] = $row['idq_a'];
-			$ans['total'] = $row['total']+0;
-			array_push($answers, $ans);
-		}
-		
-		$response['datasourceSimpleQuestions'] = $dataSource;
-		$response['answers'] = $answers;
-		
-		return $response;
-	}
-	
+
 	
 	private function getRadioQuestions(){
 		$dataSource = array();
@@ -92,50 +57,7 @@ class ReportsController extends Controller{
 	}
 	
 	
-	
-	/*private function getSimpleQuestion(){
-		$dataSource = array();
-		$series =  array();
-		$tmpSerie = array();
-		$responseTmp =  array();
-		$response =  array();
-		$idsQuestions = [1,2,3,5,6,22,23,24,25,26,27,28];
-		$index = 0;
-		foreach ($idsQuestions as $id){
-			//Yii::log("Pregunta $id:",'warning');
-			$results = ReportsDao::getInstance()->getSimpleQuestionById($id);
-			$answers = array();
-			$tmpSerie =  array();
-			$tmpAnswer =  array();
-			$tmpSerie2 = array();
-			foreach ($results as $row){
-				$answers['text'] = $row['textAnswer'];//substr($row['text'], 0, 2);
-				$answers[  str_replace(' ', '_', self::clean( $row['textAnswer'] ) ) ] = $row['total']+0;
-				
-				array_push($tmpAnswer, $answers);
-				
-				$tmpSerie2['valueField'] = str_replace(' ', '_', self::clean( $row['textAnswer'] ) );
-				$tmpSerie2['name'] =  $row['textAnswer'];
-				//Yii::log(json_encode($answers),'warning');
-				array_push($tmpSerie, $tmpSerie2);
-			}
-			
-//			array_push($series, $tmpSerie);
-//			array_push($dataSource, $answers);
-			
-			$responseTmp['dataSource'] = $tmpAnswer;//$dataSource;
-			$responseTmp['series'] = $tmpSerie;//$series;
-			$responseTmp['idDiv'] = "question".$id;
-			$responseTmp['textQuestion'] = $row['textQuestion'];
-			array_push($response, $responseTmp);
-				
-		}
-		Yii::log(json_encode($response),'warning');
-		
-		return $response;
-	}*/
-	
-	
+
 	private function getSimpleQuestion(){
 		$dataSource = array();
 		$response =  array();
@@ -156,15 +78,63 @@ class ReportsController extends Controller{
 			$responseTmp['textQuestion'] = $row['textQuestion'];
 			array_push($response, $responseTmp);
 		}
-		Yii::log(json_encode($response),'warning');
+		//Yii::log(json_encode($response),'warning');
 	
 		return $response;
 	}
 	
-	private function clean($string) {
-		$string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
-		$string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
 	
-		return preg_replace('/-+/', '-', $string); // Replaces multiple hyphens with single one.
+	
+	public function actionUserReport($idUser){
+		if( UsersDao::getInstance()->validToken() ){//Listo
+			
+		$dataSourceSpider = array();
+		$spiderInfoTable = array();
+		
+		//$idUser = Yii::app()->session['id'];
+		$radioResponses = ReportsDao::getInstance()->getRadioSpiderByUser( $idUser );
+		foreach ($radioResponses as $row){
+			$answers['arg'] = $row['number'];
+			$answers['valor' ] = $row['value']+0;
+			array_push($dataSourceSpider, $answers);
+		}
+		
+		
+		$data = ReportsDao::getInstance()->getAllUserResponse( $idUser );
+		$orderQuestions = array();
+		$arrayAnswers = array();
+		$arrayRespuestas= array();
+		$questionTpm = 0;
+		foreach ($data as $quest){
+			$questionNumber =  $quest['number'];
+				
+			if($questionTpm < $questionNumber){
+				$question = new Question();
+				$answer = new Answer();
+				$arrayAnswers = array();
+				$arrayRespuestas = array();
+				$questionTpm = $quest['number'];
+				$question->setNumber($quest['number']);
+				$question->setText($quest['question']);
+		
+				$answer->setText($quest['answer']);
+				array_push($arrayRespuestas,$quest['answer']);
+				array_push($arrayAnswers,$answer);
+				$question->setAnswers($arrayAnswers);
+				array_push($orderQuestions, $question);
+				//$question->respuestas = $arrayRespuestas;
+			}else if ( $questionTpm == $questionNumber ){
+				$answer = new Answer();
+				$answer->setText($quest['answer']);
+				array_push($arrayAnswers, $answer);
+				$question->setAnswers($arrayAnswers);
+				array_push($arrayRespuestas,$quest['answer']);
+				$question->respuestas = $arrayRespuestas;
+			}
+		}
+		$this->render('userReport',array("dataSourceSpider"=>json_encode($dataSourceSpider),"radioResponses"=>$radioResponses,"arrayQuestions"=>$orderQuestions));
+		}else{
+			UtilsFunctions::destroySession();
+		}
 	}
 }
