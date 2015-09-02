@@ -7,8 +7,8 @@
 class Constants{
 	const PREFIX_PROMO_CODE = "KIT_";
 	const DOMINIO_NYCE = "http://www.nyce.org.mx/";
-	const URL_REGISTER_CONFIRMATION_CODE = "http://pmstudykit.com/kitsgdp/index.php?r=register/confirmation&activationCode=";
-	const URL_CHANGE_PASSWORD_CODE = "http://pmstudykit.com/kitsgdp/index.php?r=site/ChangePassword&changePasswordCode=";
+	const URL_REGISTER_CONFIRMATION_CODE = "http://pmstudykit.com/dev_kitsgdp/index.php?r=register/confirmation&activationCode=";
+	const URL_CHANGE_PASSWORD_CODE = "http://pmstudykit.com/dev_kitsgdp/index.php?r=site/ChangePassword&changePasswordCode=";
 	const URL_AVISO_PRIVACIDAD = "http://www.nyce.org.mx/index.php/privacidad";
 	const TAG_TITLE = "Nyce Kit-SGDP ";
 	const URL_DOWNLOAD_FILES = 'http://pmstudykit.com/resources/kitgsdp_resources/';
