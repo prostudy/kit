@@ -11,16 +11,18 @@
 		<!-- Colored panel, remember to add "panel-color" before applying the color -->
 		<div class="panel panel-color panel-gray"><!-- Add class "collapsed" to minimize the panel -->
 			<div class="panel-heading">
-				<h3 class="panel-title">¿Quiénes Somos?</h3>
+				<h1 class="panel-title"><strong>Introducci&oacute;n al KIT SGDP</strong></h1>
 			</div>
 			
 			<div class="panel-body">
-				<h3>&nbsp;<strong>Introducci&oacute;n al KIT SGDP</strong></h3>
 				
 				<p>Esta herramienta est&aacute; dirigida a todas aquellas personas f&iacute;sicas o morales que venden bienes o prestan alg&uacute;n servicio dentro sector privado y que pueden llegar a ser responsables del tratamiento de datos personales, independientemente del ramo en el que se desarrollen, as&iacute; como a los encargados y terceros y tiene como finalidad que el usuario, a&uacute;n sin tener conocimiento alguno del contenido de la Ley de Protecci&oacute;n de Datos Personales en Posesi&oacute;n de los Particulares (LFPDPPP), pueda realizar un blindaje dentro de su organizaci&oacute;n, de modo tal que los datos que maneja sean pertinentes, correctos y actualizados, seg&uacute;n lo establecido por la Ley mencionada.</p>
-				
-				<p>Es una herramienta que te permitir&aacute; cumplir con la LPDPPP, logrando:</p>
-				<br>
+								
+				<br/>							
+				<center><img src="http://pmstudykit.com/kitsgdp/images/mainImageToolkit.png" alt="" width="70%" /></center>
+				<br/>	
+				<p>Es una herramienta que te permitir&aacute; cumplir con la LFPDPPP, logrando:</p>
+				<br/>
 				<ol>
 				    <li>Entender qu&eacute; son los datos personales.</li>
 				    <li>Distinguir los datos personales de los datos sensibles, as&iacute; como de otro tipo de informaci&oacute;n.</li>
@@ -44,23 +46,6 @@
 	</div>
 </div>
 
-
-<div class="row">
-	<div class="col-md-12">	
-	<div class="panel panel-flat"><!-- Add class "collapsed" to minimize the panel -->
-						<div class="panel-heading">
-							<h3 class="panel-title">Módulos</h3>
-						</div>
-						
-						<div class="panel-body">
-							
-								<center><img src="http://pmstudykit.com/kitsgdp/images/mainImageToolkit.png" alt="" width="70%" /></center>
-						
-						</div>
-					</div>			
-	</div>
-	
-</div>
 
 	
 <script type="text/javascript">

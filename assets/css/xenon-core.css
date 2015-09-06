@@ -701,6 +701,7 @@ html,body {
     margin: 0;
     font-size: 27px;
     color: #01A7A7;
+    font-weight: 700;
 }
 
 @media screen and (max-width: 768px) {
@@ -3984,6 +3985,7 @@ body.chat-open #chat {
     padding-top: 20px;
     color: #01A7A7;
     /*color: #000;*/
+    text-align: justify;
 }
 
 .panel .panel-body.no-padding {
@@ -4368,7 +4370,8 @@ body.chat-open #chat {
 }
 
 .panel.panel-gray .panel-heading>.panel-title {
-    color: #fff
+    color: #fff;
+    font-size: 1.2em;
 }
 
 .panel.panel-gray .panel-heading>.panel-title>a {

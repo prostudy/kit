@@ -80,6 +80,55 @@
 		</div>
 </div>
 
+<div class="row">
+	<div class="col-sm-3">
+		<div class="xe-widget xe-counter" data-count=".num" data-from="0" data-to="99.9" data-suffix="%" data-duration="2">
+			<div class="xe-icon">
+				<i class="linecons-cloud"></i>
+			</div>
+			<div class="xe-label">
+				<strong class="num">99.9%</strong>
+				<span>Server uptime</span>
+			</div>
+		</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="xe-widget xe-counter xe-counter-purple" data-count=".num" data-from="1" data-to="<?= $totalSurveys ?>" data-suffix="" data-duration="3" data-easing="false">
+				<div class="xe-icon">
+					<i class="linecons-user"></i>
+				</div>
+				<div class="xe-label">
+					<strong class="num"><?= $totalSurveys ?></strong>
+					<span>Encuestas realizadas</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-sm-3">
+			<div class="xe-widget xe-counter xe-counter-info" data-count=".num" data-from="1000" data-to="2470" data-duration="4" data-easing="true">
+				<div class="xe-icon">
+					<i class="linecons-camera"></i>
+				</div>
+				<div class="xe-label">
+					<strong class="num">2,470</strong>
+					<span>New Daily Photos</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-sm-3">
+		<div class="xe-widget xe-counter" data-count=".num" data-from="0" data-to="99.9" data-suffix="%" data-duration="2">
+			<div class="xe-icon">
+				<i class="linecons-cloud"></i>
+			</div>
+			<div class="xe-label">
+				<strong class="num">99.9%</strong>
+				<span>Server uptime</span>
+			</div>
+		</div>
+		</div>
+</div>
+
 <!-- Graficas de sectores y subsectores -->
 <div class="row">
 	<div class="col-sm-6">
@@ -164,9 +213,9 @@
 	    }
 	});*/
 
-	/*$("#"+idDiv).dxPieChart({
+	$("#"+idDiv).dxPieChart({
 	    dataSource: dataSourceQuestion,
-	    title: textQuestion ,
+	    /*title: textQuestion ,*/
 	    legend: {
 	        orientation: "horizontal",
 	        itemTextPosition: "right",
@@ -192,7 +241,7 @@
 	            }
 	        }
 	    }]
-	});*/
+	});
 
 	$("#"+idDiv).dxChart({
         rotated: true,

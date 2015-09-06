@@ -20,63 +20,17 @@ z-index: 9999 !important;
 
 <div class="row">
 
+
 <div class="col-sm-12">
-						
-	<div class="xe-widget xe-conversations">
-		<div class="xe-bg-icon">
-			<i class="linecons-comment"></i>
-		</div>
-		<div class="xe-header">
-			<div class="xe-icon">						
-				<i class="linecons-comment"></i>
-			</div>
-			<div class="xe-label">
-				<h3>
-					Analisis
-					<small>En esta sección se muestra un resumen de tu empresa</small>
-				</h3>
-				
-			</div>
-			
-		</div>
-		<div class="xe-body">
-			
-			<ul class="list-unstyled">
-				<?php foreach ($arrayQuestions as $question){?>
-					<li>
-						<div class="xe-comment-entry">
-						<a href="#" class="xe-user-img">
-						</a>
-						<div class="xe-comment">
-					<?php echo  "<strong>".$question->getNumber().".-".$question->getText()."</strong>";
-					foreach ($question->getAnswers() as $answer){
-							echo  "<p>".ucfirst($answer->getText())."</p>";
-						}
-						?>
-						</div>
-					</div>
-				
-				</li>
-					
-			<?php 	}	?>		
-			</ul>
-			
-		</div>
-		<div class="xe-footer">
-
-		</div>
-	</div>
-					
-</div>
-</div>
-
-<div class="row">
-	<div class="col-sm-6">
 		<div class="chart-item-bg">
 			<div id="SpiderWeb"></div>
 		</div>
 	</div>
-	<div class="col-md-6">
+	
+</div>
+
+<div class="row">
+<div class="col-md-12">
 				
 					<div class="panel panel-default">
 						<div class="panel-heading">
@@ -100,14 +54,14 @@ z-index: 9999 !important;
 									<td class="middle-align">
 										<div class="progress">
 										<?php 
-										if( ($row['value']+0) == 0 )
+										if( ($row['value']+0) >= 0 && ($row['value']+0) <= .5 )
 											$color = 'danger';
-										elseif (($row['value']+0) == 1 )
-											$color = 'success';
-										elseif (($row['value']+0) > 0 && ($row['value']+0) < 1)
-										$color = 'warning';
+										elseif (($row['value']+0) > .5 && ($row['value']+0) <= .75 )
+											$color = 'warning';
+										elseif (($row['value']+0) == 1)
+										$color = 'success';
 										?>
-											<div class="progress-bar progress-bar-<?= $color?>" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: <?= $row['value']*100?>%">
+											<div class="progress-bar progress-bar-<?= $color?>" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: <?=  $row['value']+0 == 0 ? $row['value']+.1*100 : $row['value']*100     ?>%">
 												<span class="sr-only"><?= $row['value']*100?>% Complete</span>
 											</div>
 										</div>
@@ -119,6 +73,54 @@ z-index: 9999 !important;
 					</div>
 					
 				</div>
+	<div class="col-sm-12">
+						
+	<div class="text-success-nyce xe-widget xe-conversations">
+		<div class="xe-bg-icon ">
+			<i class=" text-success-nyce linecons-comment"></i>
+		</div>
+		<div class="xe-header">
+			<div class="xe-icon">						
+				<i class="linecons-comment"></i>
+			</div>
+			<div class="xe-label">
+				<h3>
+					<span class='text-success-nyce'>Resultado sobre el nivel de cumplimiento</span>
+					<small>En esta sección se muestra un resumen de tu empresa</small>
+				</h3>
+				
+			</div>
+			
+		</div>
+		<div class="xe-body">
+			
+			<ul class="list-unstyled">
+				<?php foreach ($arrayQuestions as $question){?>
+					<li>
+						<div class="xe-comment-entry">
+						<a href="#" class="xe-user-img">
+						</a>
+						<div class="xe-comment">
+					<?php echo "<p class='text-success-nyce'>". $question->getNumber().".-".$question->getText()."</p>";
+					foreach ($question->getAnswers() as $answer){
+							echo  "<p>".ucfirst($answer->getText())."</p>";
+						}
+						?>
+						</div>
+					</div>
+				
+				</li>
+					
+			<?php 	}	?>		
+			</ul>
+			
+		</div>
+		<div class="xe-footer">
+
+		</div>
+	</div>
+					
+</div>
 </div>
 
 
@@ -135,7 +137,8 @@ $("#SpiderWeb").dxPolarChart({
     useSpiderWeb: true,
     series: [{valueField: "valor", name: "Cumplimiento" }],
     commonSeriesSettings: {        
-        type: "area"
+        type: "area",
+        color: '#01A7A7'
     },
     title: "Nivel de cumplimiento",
     tooltip: {enabled: true}

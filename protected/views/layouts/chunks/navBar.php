@@ -7,50 +7,7 @@
 						</a>
 					</li>
 			
-					<?php $notifications = UsersDao::getInstance()->getNotifications();?>
-					<li class="dropdown hover-line">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="fa-bell-o"></i>
-							<span class="badge badge-purple"><?= count($notifications) ?></span>
-						</a>
-						<ul class="dropdown-menu notifications">
-							<li class="top">
-								<p class="small">
-									Se han enviado <strong><?= count($notifications) ?></strong> anunicios.
-								</p>
-							</li>
-							
-							<li>
-								<ul class="dropdown-menu-list list-unstyled ps-scrollbar">
-								
-								<?php 
-									
-									foreach($notifications as $notification){?>
-									<li class="	 <?= $notification['color']?>">
-										<a href="#">
-											<i class="<?= $notification['icon']?>"></i>
-											
-											<span class="line">
-												<strong><?= $notification['title']?></strong>
-											</span>
-											
-											<span class="line small time">
-												<?= $notification['description']?>
-											</span>
-										</a>
-									</li>
-									<?php }?>
-								</ul>
-							</li>
-							
-							<li class="external">
-								<a href="">
-									<span>Notificaciones enviadas por NYCE</span>
-									<i class="fa-link-ext"></i>
-								</a>
-							</li>
-						</ul>
-					</li>
+					
 				</ul>
 			
 			
@@ -78,30 +35,6 @@
 						</a>
 			
 						<ul class="dropdown-menu user-profile-menu list-unstyled">
-							<li>
-								<a href="#edit-profile">
-									<i class="fa-edit"></i>
-									New Post
-								</a>
-							</li>
-							<li>
-								<a href="#settings">
-									<i class="fa-wrench"></i>
-									Settings
-								</a>
-							</li>
-							<li>
-								<a href="#profile">
-									<i class="fa-user"></i>
-									Profile
-								</a>
-							</li>
-							<li>
-								<a href="#help">
-									<i class="fa-info"></i>
-									Help
-								</a>
-							</li>
 							<li class="last">
 								<a href="<?php echo Yii::app()->createAbsoluteUrl("Site/close"); ?>">
 									<i class="fa-sign-out"></i>
@@ -111,11 +44,6 @@
 						</ul>
 					</li>
 			
-					<li>
-						<a href="#" data-toggle="chat">
-							<i class="fa-comments-o"></i>						<span>3</span>
-							
-						</a>
-					</li>
+					
 			
 				</ul>

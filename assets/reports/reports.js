@@ -72,7 +72,7 @@ jQuery(document).ready(function($){
 	    hoverMode: "allArgumentPoints",
 	    selectionMode: "allArgumentPoints",
 	    label: {
-	        visible: true,
+	        visible: false,
 	        format: "fixedPoint",
 	        precision: 0
 	    }
@@ -84,7 +84,7 @@ jQuery(document).ready(function($){
 	    { valueField: "Implementado", name: "Implementado" }
 	    
 	],
-	title: "Preguntas Radio",
+	title: "Estado de cumplimiento global",
 	legend: {
 	    verticalAlignment: "bottom",
 	    horizontalAlignment: "center"
