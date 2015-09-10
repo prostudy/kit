@@ -41,6 +41,18 @@ class ReportsDao{
 		$connection->active=false;
 	}
 	
+	public function getSectorPie($idType){
+		$connection=Yii::app()->db;
+		$sql =  Querys::GET_SECTOR_PIE;
+		$command = $connection->createCommand($sql);
+		$index = 0;
+		$command->bindValue(++$index,$idType,PDO::PARAM_INT);
+		$sectores = $command->query();
+				return $sectores;
+		throw new Exception(Constants::REPORTS_ERROR);
+		$connection->active=false;
+	}
+	
 	public function getAllSimpleQuestions(){
 		$connection=Yii::app()->db;
 		$sql =  Querys::GET_SIMPLE_QUESTIONS;
@@ -70,6 +82,16 @@ class ReportsDao{
 		$command = $connection->createCommand($sql);
 		$index = 0;
 		$command->bindValue(++$index,$id,PDO::PARAM_INT);
+		$data = $command->queryAll();
+		return $data;
+		throw new Exception(Constants::REPORTS_ERROR);
+		$connection->active=false;
+	}
+	
+	public function getQuestionsTopics(){
+		$connection=Yii::app()->db;
+		$sql =  Querys::GET_QUESTIONS_WTIH_TOPICS;
+		$command = $connection->createCommand($sql);
 		$data = $command->queryAll();
 		return $data;
 		throw new Exception(Constants::REPORTS_ERROR);

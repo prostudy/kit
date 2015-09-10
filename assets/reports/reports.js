@@ -30,6 +30,216 @@ jQuery(document).ready(function($){
 	        }
 	    }]
 	});
+		
+		$("#dataSourcePieSector1").dxPieChart({
+			dataSource: dataSourcePieSector1,
+			title: "Financiero",
+			legend: {
+			    orientation: "horizontal",
+			    itemTextPosition: "right",
+			    horizontalAlignment: "right",
+			    verticalAlignment: "bottom",
+			    columnCount: 4
+			},
+			series: [{
+			    argumentField: "subsector",
+			    valueField: "subsector_total",
+			    label: {
+			        visible: true,
+			        font: {
+			            size: 16
+			        },
+			        connector: {
+			            visible: true,
+			            width: 0.5
+			        },
+			        position: "columns",
+			        customizeText: function(arg) {
+			            return arg.valueText + " ( " + arg.percentText + ")";
+			            }
+			        }
+			    }]
+			});
+		
+		$("#dataSourcePieSector2").dxPieChart({
+			dataSource: dataSourcePieSector2,
+			title: "Salud",
+			legend: {
+			    orientation: "horizontal",
+			    itemTextPosition: "right",
+			    horizontalAlignment: "right",
+			    verticalAlignment: "bottom",
+			    columnCount: 4
+			},
+			series: [{
+			    argumentField: "subsector",
+			    valueField: "subsector_total",
+			    label: {
+			        visible: true,
+			        font: {
+			            size: 16
+			        },
+			        connector: {
+			            visible: true,
+			            width: 0.5
+			        },
+			        position: "columns",
+			        customizeText: function(arg) {
+			            return arg.valueText + " ( " + arg.percentText + ")";
+			            }
+			        }
+			    }]
+			});
+		
+		$("#dataSourcePieSector3").dxPieChart({
+			dataSource: dataSourcePieSector3,
+			title: "Telecomunicaciones",
+			legend: {
+			    orientation: "horizontal",
+			    itemTextPosition: "right",
+			    horizontalAlignment: "right",
+			    verticalAlignment: "bottom",
+			    columnCount: 4
+			},
+			series: [{
+			    argumentField: "subsector",
+			    valueField: "subsector_total",
+			    label: {
+			        visible: true,
+			        font: {
+			            size: 16
+			        },
+			        connector: {
+			            visible: true,
+			            width: 0.5
+			        },
+			        position: "columns",
+			        customizeText: function(arg) {
+			            return arg.valueText + " ( " + arg.percentText + ")";
+			            }
+			        }
+			    }]
+			});
+		
+		$("#dataSourcePieSector4").dxPieChart({
+			dataSource: dataSourcePieSector4,
+			title: "Cámaras y asociaciones",
+			legend: {
+			    orientation: "horizontal",
+			    itemTextPosition: "right",
+			    horizontalAlignment: "right",
+			    verticalAlignment: "bottom",
+			    columnCount: 4
+			},
+			series: [{
+			    argumentField: "subsector",
+			    valueField: "subsector_total",
+			    label: {
+			        visible: true,
+			        font: {
+			            size: 16
+			        },
+			        connector: {
+			            visible: true,
+			            width: 0.5
+			        },
+			        position: "columns",
+			        customizeText: function(arg) {
+			            return arg.valueText + " ( " + arg.percentText + ")";
+			            }
+			        }
+			    }]
+			});
+		
+		$("#dataSourcePieSector5").dxPieChart({
+			dataSource: dataSourcePieSector5,
+			title: "Educación",
+			legend: {
+			    orientation: "horizontal",
+			    itemTextPosition: "right",
+			    horizontalAlignment: "right",
+			    verticalAlignment: "bottom",
+			    columnCount: 4
+			},
+			series: [{
+			    argumentField: "subsector",
+			    valueField: "subsector_total",
+			    label: {
+			        visible: true,
+			        font: {
+			            size: 16
+			        },
+			        connector: {
+			            visible: true,
+			            width: 0.5
+			        },
+			        position: "columns",
+			        customizeText: function(arg) {
+			            return arg.valueText + " ( " + arg.percentText + ")";
+			            }
+			        }
+			    }]
+			});
+		
+		$("#dataSourcePieSector6").dxPieChart({
+			dataSource: dataSourcePieSector6,
+			title: "Industria/comercio/servicios",
+			legend: {
+			    orientation: "horizontal",
+			    itemTextPosition: "right",
+			    horizontalAlignment: "right",
+			    verticalAlignment: "bottom",
+			    columnCount: 4
+			},
+			series: [{
+			    argumentField: "subsector",
+			    valueField: "subsector_total",
+			    label: {
+			        visible: true,
+			        font: {
+			            size: 16
+			        },
+			        connector: {
+			            visible: true,
+			            width: 0.5
+			        },
+			        position: "columns",
+			        customizeText: function(arg) {
+			            return arg.valueText + " ( " + arg.percentText + ")";
+			            }
+			        }
+			    }]
+			});
+		
+		$("#dataSourcePieSector7").dxPieChart({
+			dataSource: dataSourcePieSector7,
+			title: "Otros sectores",
+			legend: {
+			    orientation: "horizontal",
+			    itemTextPosition: "right",
+			    horizontalAlignment: "right",
+			    verticalAlignment: "bottom",
+			    columnCount: 4
+			},
+			series: [{
+			    argumentField: "subsector",
+			    valueField: "subsector_total",
+			    label: {
+			        visible: true,
+			        font: {
+			            size: 16
+			        },
+			        connector: {
+			            visible: true,
+			            width: 0.5
+			        },
+			        position: "columns",
+			        customizeText: function(arg) {
+			            return arg.valueText + " ( " + arg.percentText + ")";
+			            }
+			        }
+			    }]
+			});
 	
 	
 	var chart = $("#dataSourcePieSubsectorsBars").dxChart({

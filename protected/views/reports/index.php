@@ -26,108 +26,14 @@
 <div class="page-title">
 			
 	<div class="title-env">
-		<h1 class="title">Reportes</h1>
+		<h1 class="title">Reportes (<?= "Se han completado $totalSurveys cuestionarios" ?>)</h1>
 		<p class="description">Cuestionario para conocer el estado de cumplimiento sobre la LFPDPPP y demás normativa aplicable. </p>
 	</div>
 			
 </div>
-<div class="row">
-	<div class="col-sm-3">
-		<div class="xe-widget xe-counter" data-count=".num" data-from="0" data-to="99.9" data-suffix="%" data-duration="2">
-			<div class="xe-icon">
-				<i class="linecons-cloud"></i>
-			</div>
-			<div class="xe-label">
-				<strong class="num">99.9%</strong>
-				<span>Server uptime</span>
-			</div>
-		</div>
-		</div>
-		<div class="col-sm-3">
-			<div class="xe-widget xe-counter xe-counter-purple" data-count=".num" data-from="1" data-to="<?= $totalSurveys ?>" data-suffix="" data-duration="3" data-easing="false">
-				<div class="xe-icon">
-					<i class="linecons-user"></i>
-				</div>
-				<div class="xe-label">
-					<strong class="num"><?= $totalSurveys ?></strong>
-					<span>Encuestas realizadas</span>
-				</div>
-			</div>
-		</div>
-		
-		<div class="col-sm-3">
-			<div class="xe-widget xe-counter xe-counter-info" data-count=".num" data-from="1000" data-to="2470" data-duration="4" data-easing="true">
-				<div class="xe-icon">
-					<i class="linecons-camera"></i>
-				</div>
-				<div class="xe-label">
-					<strong class="num">2,470</strong>
-					<span>New Daily Photos</span>
-				</div>
-			</div>
-		</div>
-		
-		<div class="col-sm-3">
-		<div class="xe-widget xe-counter" data-count=".num" data-from="0" data-to="99.9" data-suffix="%" data-duration="2">
-			<div class="xe-icon">
-				<i class="linecons-cloud"></i>
-			</div>
-			<div class="xe-label">
-				<strong class="num">99.9%</strong>
-				<span>Server uptime</span>
-			</div>
-		</div>
-		</div>
-</div>
 
-<div class="row">
-	<div class="col-sm-3">
-		<div class="xe-widget xe-counter" data-count=".num" data-from="0" data-to="99.9" data-suffix="%" data-duration="2">
-			<div class="xe-icon">
-				<i class="linecons-cloud"></i>
-			</div>
-			<div class="xe-label">
-				<strong class="num">99.9%</strong>
-				<span>Server uptime</span>
-			</div>
-		</div>
-		</div>
-		<div class="col-sm-3">
-			<div class="xe-widget xe-counter xe-counter-purple" data-count=".num" data-from="1" data-to="<?= $totalSurveys ?>" data-suffix="" data-duration="3" data-easing="false">
-				<div class="xe-icon">
-					<i class="linecons-user"></i>
-				</div>
-				<div class="xe-label">
-					<strong class="num"><?= $totalSurveys ?></strong>
-					<span>Encuestas realizadas</span>
-				</div>
-			</div>
-		</div>
-		
-		<div class="col-sm-3">
-			<div class="xe-widget xe-counter xe-counter-info" data-count=".num" data-from="1000" data-to="2470" data-duration="4" data-easing="true">
-				<div class="xe-icon">
-					<i class="linecons-camera"></i>
-				</div>
-				<div class="xe-label">
-					<strong class="num">2,470</strong>
-					<span>New Daily Photos</span>
-				</div>
-			</div>
-		</div>
-		
-		<div class="col-sm-3">
-		<div class="xe-widget xe-counter" data-count=".num" data-from="0" data-to="99.9" data-suffix="%" data-duration="2">
-			<div class="xe-icon">
-				<i class="linecons-cloud"></i>
-			</div>
-			<div class="xe-label">
-				<strong class="num">99.9%</strong>
-				<span>Server uptime</span>
-			</div>
-		</div>
-		</div>
-</div>
+
+
 
 <!-- Graficas de sectores y subsectores -->
 <div class="row">
@@ -144,11 +50,107 @@
 	</div>
 </div>
 
+<div class="row">
+	<div class="col-sm-6">
+		<div class="chart-item-bg">
+			<div id="dataSourcePieSector1"></div>
+		</div>		
+	</div>
+	<div class="col-sm-6">
+		<div class="chart-item-bg">
+			<div id="dataSourcePieSector2"></div>
+		</div>		
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-6">
+		<div class="chart-item-bg">
+			<div id="dataSourcePieSector3"></div>
+		</div>		
+	</div>
+	<div class="col-sm-6">
+		<div class="chart-item-bg">
+			<div id="dataSourcePieSector4"></div>
+		</div>		
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-6">
+		<div class="chart-item-bg">
+			<div id="dataSourcePieSector5"></div>
+		</div>		
+	</div>
+	<div class="col-sm-6">
+		<div class="chart-item-bg">
+			<div id="dataSourcePieSector6"></div>
+		</div>		
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="chart-item-bg">
+			<div id="dataSourcePieSector7"></div>
+		</div>		
+	</div>
+</div>
+
 
 <div class="row">
 	<div class="col-sm-12">
 		<div class="chart-item-bg">
 			<div id="dataSourceRadioQuestions"></div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Nivel de cumplimiento </h3>
+			</div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Tópico</th>
+					</tr>
+				</thead>
+				<tbody>
+				<?php for ($i=0; $i<count($radioTopics) && $i<8; $i++){?>
+					<tr>
+						<td><?= $radioTopics[$i]['number']?></td>
+						<td><?= $radioTopics[$i]['topic']?></td>
+					</tr>
+					<?php } ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Nivel de cumplimiento </h3>
+			</div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Tópico</th>
+					</tr>
+				</thead>
+				<tbody>
+				<?php for ($i=8; $i<count($radioTopics); $i++){?>
+					<tr>
+						<td><?= $radioTopics[$i]['number']?></td>
+						<td><?= $radioTopics[$i]['topic']?></td>
+					</tr>
+					<?php } ?>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>
@@ -283,6 +285,16 @@
 	
 <script>
 var dataSourcePieSubsectors = <?php echo $dataSourcePieSubsectors;?>;
+var dataSourcePieSector1 = <?php echo $dataSourcePieSector1;?>;
+var dataSourcePieSector2 = <?php echo $dataSourcePieSector2;?>;
+var dataSourcePieSector3 = <?php echo $dataSourcePieSector3;?>;
+var dataSourcePieSector4 = <?php echo $dataSourcePieSector4;?>;
+var dataSourcePieSector5 = <?php echo $dataSourcePieSector5;?>;
+var dataSourcePieSector6 = <?php echo $dataSourcePieSector6;?>;
+var dataSourcePieSector7 = <?php echo $dataSourcePieSector7;?>;
+
+
+
 var dataSourceRadioQuestions = <?php echo $dataSourceRadioQuestions	;?>;	
 </script>
 <script src="<?=Yii::app()->request->baseUrl;?>/assets/reports/reports.js"></script>

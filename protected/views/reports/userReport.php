@@ -12,8 +12,9 @@ z-index: 9999 !important;
 <div class="page-title">
 			
 	<div class="title-env">
-		<h1 class="title">Reporte de usuario</h1>
-		<p class="description">Cuestionario para conocer el estado de cumplimiento sobre la LFPDPPP y demás normativa aplicable. </p>
+		<h1 class="title">Reporte de usuario </h1>
+		<p class="description">Cuestionario para conocer el estado de cumplimiento sobre la LFPDPPP y demás normativa aplicable.		
+		 </p>
 	</div>
 			
 </div>
@@ -34,7 +35,7 @@ z-index: 9999 !important;
 				
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Nivel de cumplimiento</h3>
+							<h3 class="panel-title">Nivel de cumplimiento <?= "Sector:$sector Subsector:$typeSector, tamaño de la empresa: $size" ?></h3>
 						</div>
 						
 						<table class="table table-striped">

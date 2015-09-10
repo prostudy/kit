@@ -154,6 +154,13 @@ class Querys{
 											and t.sector_catalog_idsector_catalog =  s.idsector_catalog
 											group by t.name	 order by s.name";
 	
+	const GET_SECTOR_PIE = "Select sector_catalog.name as sector, type_sector_catalog.name as subsector ,  count(*) as subsector_total from sector_catalog,type_sector_catalog, general_data
+							where idsector_catalog = ?
+							and general_data.type_sector_catalog_sector_catalog_idsector_catalog = idsector_catalog
+							AND idsector_catalog = type_sector_catalog_sector_catalog_idsector_catalog		
+							AND type_sector_catalog.idtype_sector_catalog = type_sector_catalog_idtype_sector_catalog
+							group by type_sector_catalog.name	 order by sector_catalog.name";
+	
 	
 			
 	
@@ -204,16 +211,22 @@ class Querys{
 										and general_data.folio = survey_responses.general_data_folio
 										order by Questions.number"; 
 	
-	const GET_ALL_USER_RESPONSES = "SELECT *, Questions.text as question, Answers.text as answer
-									FROM general_data,  `Questions` ,  `Questions_has_Answers` , Answers, survey_responses ,users
+	const GET_ALL_USER_RESPONSES = "SELECT *, Questions.text as question, Answers.text as answer, sector_catalog.name as sector, type_sector_catalog.name as typeSector, size_catalog.name as size
+									FROM general_data,  `Questions` ,  `Questions_has_Answers` , Answers, survey_responses ,users, sector_catalog,type_sector_catalog,size_catalog
 									WHERE Questions.`idQuestions` =  `Questions_has_Answers`.`Questions_idQuestions`
 									AND  `Questions_has_Answers`.`Answers_idAnswers` = Answers.`idAnswers`
 									AND survey_responses.Questions_has_Answers_idq_a = Questions_has_Answers.idq_a
 									AND general_data.folio= survey_responses.general_data_folio	/*and Questions.number =23*/
+									AND idsector_catalog = type_sector_catalog_sector_catalog_idsector_catalog		
+									AND type_sector_catalog.idtype_sector_catalog = type_sector_catalog_idtype_sector_catalog
+									AND general_data.idsize_catalog = size_catalog.idsize_catalog
 									/*AND general_data.folio = '8e1ce56ec51b29a'*/
-								   and users.idusers = general_data.`users_idusers`
+								    and users.idusers = general_data.`users_idusers`
 									and general_data.`users_idusers` = ?
 									ORDER BY   general_data.createdon ,Questions.`number`";
+	
+	
+	const GET_QUESTIONS_WTIH_TOPICS = "SELECT * FROM QUESTIONS where type_control= 'radio' and topic <> ''";
 	
 	//se valida la de arriba
 	/*SELECT *  FROM Answers,Questions_has_Answers,survey_responses
