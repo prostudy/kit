@@ -226,7 +226,7 @@ class Querys{
 									ORDER BY   general_data.createdon ,Questions.`number`";
 	
 	
-	const GET_QUESTIONS_WTIH_TOPICS = "SELECT * FROM QUESTIONS where type_control= 'radio' and topic <> ''";
+	const GET_QUESTIONS_WTIH_TOPICS = "SELECT * FROM Questions where type_control= 'radio' and topic <> ''";
 	
 	//se valida la de arriba
 	/*SELECT *  FROM Answers,Questions_has_Answers,survey_responses
